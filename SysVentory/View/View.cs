@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SysVentory;
 
 namespace SysVentory.View
 {
@@ -15,6 +16,11 @@ namespace SysVentory.View
         public View()
         {
             InitializeComponent();
+        }
+
+        private void CmdScan_Click(object sender, EventArgs e)
+        {
+            Model.Scan latestScan = Controller.Controller.ScanNow();
         }
     }
 }

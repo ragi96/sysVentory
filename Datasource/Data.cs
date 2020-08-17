@@ -25,6 +25,7 @@ namespace Datasource {
             data.ReadWmi("Win32_Processor");
             data.ReadWmi("Win32_PhysicalMemory");
             data.ReadWmi("Win32_NetworkAdapter");
+            data.ReadWmi("Win32_OperatingSystem");
             data.ReadSoftware();
             return data;
         }
