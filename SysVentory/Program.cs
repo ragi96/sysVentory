@@ -1,7 +1,7 @@
 ﻿using System;
 using Datasource;
 
-namespace TestApp {
+namespace SysVentory {
     static class Program {
         static void Main(string[] args) {
             // synchrone Variante

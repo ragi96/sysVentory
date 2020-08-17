@@ -1,4 +1,4 @@
-﻿namespace TestApp.View
+﻿namespace SysVentory.View
 {
     partial class View
     {

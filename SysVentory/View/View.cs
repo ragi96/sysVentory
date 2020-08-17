@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestApp.View
+namespace SysVentory.View
 {
     public partial class View : Form
     {

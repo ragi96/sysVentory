@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestApp.Controller
+namespace SysVentory.Model
 {
-    class Class1
+    class Scan
     {
     }
 }

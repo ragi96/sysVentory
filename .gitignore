@@ -1,3 +1,5 @@
 .vs/
-TestApp/obj/
-TestApp/bin/
+SysVentory/obj/
+SysVentory/bin/
+Datasource/obj/
+Datasource/bin/
