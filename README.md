@@ -3,8 +3,9 @@
 ## To-Do
 1. Scan
 2. Scan To File (JSON) & pro Scan Timestamp, pro PC 1 File
-3. Windows Forms (Liste aller Scans, Anzeige 1 Scan, Vergleich 2 Scans, Scan ausführen)
-4. Klassendiagramm
+3. Model Data Anpassen / Nur Speichern in Data was benötigt wird (Weniger Ressourcen!) 
+4. Windows Forms (Liste aller Scans, Anzeige 1 Scan, Vergleich 2 Scans, Scan ausführen)
+5. Klassendiagramm
 
 ### Optional
 1. Scan Delta verschiedener Rechner
