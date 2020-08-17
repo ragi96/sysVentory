@@ -1,0 +1,5 @@
+C:\Users\rgiez\Desktop\SysVentory\Datasource\bin\Debug\Datasource.dll
+C:\Users\rgiez\Desktop\SysVentory\Datasource\bin\Debug\Datasource.pdb
+C:\Users\rgiez\Desktop\SysVentory\Datasource\obj\Debug\Datasource.csprojAssemblyReference.cache
+C:\Users\rgiez\Desktop\SysVentory\Datasource\obj\Debug\Datasource.dll
+C:\Users\rgiez\Desktop\SysVentory\Datasource\obj\Debug\Datasource.pdb
