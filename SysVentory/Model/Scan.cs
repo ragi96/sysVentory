@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datasource;
+using SysVentory.ThirdParty;
 
-namespace SysVentory.Model
+namespace SysVentory
 {
     class Scan
     {
+        public string MachineName { get; set; }
         public long Timestamp {get; set;}
         public Data Data { get; set; }
 
         public Scan(Data data)
         {
+            MachineName = Environment.MachineName;
             Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             Data = data;
         }

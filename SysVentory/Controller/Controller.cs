@@ -1,19 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datasource;
-using SysVentory.Model;
+﻿using SysVentory.ThirdParty;
 
-namespace SysVentory.Controller
+namespace SysVentory
 {
     class Controller
     {
-        public static Scan ScanNow()
+        private File Storage { get; set; }
+
+        public Controller()
         {
-            Data newData = Data.Read();
-            return new Scan(newData);
+            Storage = new File();
+        }
+
+        public Scan ScanNow()
+        {
+            Scan newScan = new Scan(Data.Read());
+            Storage.WriteScan(newScan);
+
+            return newScan;
+        }
+
+        public string GetAllScans()
+        {
+            string scans = "";
+            Storage.Scans.ForEach(scan => scans += scan.MachineName + ":\r\n" + scan.Timestamp + "\r\n\r\n");
+
+            return scans;
+        }
+
+        public File GetStorage()
+        {
+            return Storage;
         }
     }
 }
