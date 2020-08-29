@@ -29,5 +29,19 @@ namespace SysVentory
             string scanJson = JsonConvert.SerializeObject(Scans);
             System.IO.File.WriteAllText(filePath, scanJson);
         }
+
+        public void DeleteScan(string selectedScan) {
+            string scanJson = System.IO.File.ReadAllText(filePath);
+            Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
+            Scan toDelete = new Scan();
+            foreach (Scan singleScan in Scans) {
+                if (singleScan.GetSelect() == selectedScan)
+                    toDelete = singleScan;
+                    
+            }
+            Scans.Remove(toDelete);
+            string newScanJson = JsonConvert.SerializeObject(Scans);
+            System.IO.File.WriteAllText(filePath, newScanJson);
+        }
     }
 }

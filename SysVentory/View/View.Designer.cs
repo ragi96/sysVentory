@@ -39,11 +39,13 @@
             this.txtDiff = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmdDelete1 = new System.Windows.Forms.Button();
+            this.cmdDelete2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CmdScan
             // 
-            this.CmdScan.Location = new System.Drawing.Point(255, 600);
+            this.CmdScan.Location = new System.Drawing.Point(255, 630);
             this.CmdScan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CmdScan.Name = "CmdScan";
             this.CmdScan.Size = new System.Drawing.Size(436, 29);
@@ -54,7 +56,7 @@
             // 
             // TxtOut1
             // 
-            this.TxtOut1.Location = new System.Drawing.Point(11, 103);
+            this.TxtOut1.Location = new System.Drawing.Point(11, 133);
             this.TxtOut1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut1.Multiline = true;
             this.TxtOut1.Name = "TxtOut1";
@@ -64,7 +66,7 @@
             // 
             // cmdDiff
             // 
-            this.cmdDiff.Location = new System.Drawing.Point(255, 414);
+            this.cmdDiff.Location = new System.Drawing.Point(255, 444);
             this.cmdDiff.Name = "cmdDiff";
             this.cmdDiff.Size = new System.Drawing.Size(436, 29);
             this.cmdDiff.TabIndex = 4;
@@ -89,14 +91,17 @@
             this.cmbScans1.Name = "cmbScans1";
             this.cmbScans1.Size = new System.Drawing.Size(436, 21);
             this.cmbScans1.TabIndex = 6;
+            this.cmbScans1.Text = "Scan 1 auswählen";
             // 
             // cmbScans2
             // 
             this.cmbScans2.FormattingEnabled = true;
             this.cmbScans2.Location = new System.Drawing.Point(493, 38);
             this.cmbScans2.Name = "cmbScans2";
+            this.cmbScans2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbScans2.Size = new System.Drawing.Size(436, 21);
             this.cmbScans2.TabIndex = 8;
+            this.cmbScans2.Text = "Scan 2 auswählen";
             // 
             // cmdShow2
             // 
@@ -110,7 +115,7 @@
             // 
             // TxtOut2
             // 
-            this.TxtOut2.Location = new System.Drawing.Point(493, 103);
+            this.TxtOut2.Location = new System.Drawing.Point(493, 133);
             this.TxtOut2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut2.Multiline = true;
             this.TxtOut2.Name = "TxtOut2";
@@ -120,7 +125,7 @@
             // 
             // txtDiff
             // 
-            this.txtDiff.Location = new System.Drawing.Point(255, 449);
+            this.txtDiff.Location = new System.Drawing.Point(255, 479);
             this.txtDiff.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtDiff.Multiline = true;
             this.txtDiff.Name = "txtDiff";
@@ -146,11 +151,33 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Scan 1:";
             // 
+            // cmdDelete1
+            // 
+            this.cmdDelete1.Location = new System.Drawing.Point(11, 98);
+            this.cmdDelete1.Name = "cmdDelete1";
+            this.cmdDelete1.Size = new System.Drawing.Size(436, 29);
+            this.cmdDelete1.TabIndex = 13;
+            this.cmdDelete1.Text = "Scan 1 löschen";
+            this.cmdDelete1.UseVisualStyleBackColor = true;
+            this.cmdDelete1.Click += new System.EventHandler(this.cmdDelete1_Click);
+            // 
+            // cmdDelete2
+            // 
+            this.cmdDelete2.Location = new System.Drawing.Point(493, 98);
+            this.cmdDelete2.Name = "cmdDelete2";
+            this.cmdDelete2.Size = new System.Drawing.Size(436, 29);
+            this.cmdDelete2.TabIndex = 14;
+            this.cmdDelete2.Text = "Scan 2 löschen";
+            this.cmdDelete2.UseVisualStyleBackColor = true;
+            this.cmdDelete2.Click += new System.EventHandler(this.cmdDelete2_Click);
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 644);
+            this.ClientSize = new System.Drawing.Size(938, 667);
+            this.Controls.Add(this.cmdDelete2);
+            this.Controls.Add(this.cmdDelete1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDiff);
@@ -183,5 +210,7 @@
         private System.Windows.Forms.TextBox txtDiff;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button cmdDelete1;
+        private System.Windows.Forms.Button cmdDelete2;
     }
 }

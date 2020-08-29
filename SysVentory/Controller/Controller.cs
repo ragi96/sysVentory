@@ -73,5 +73,9 @@ namespace SysVentory
                 return string.Join(" ", diffList);
             }
         }
+
+        public void DeleteByScan(string selected) {
+            Storage.DeleteScan(selected);
+        }
     }
 }

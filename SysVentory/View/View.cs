@@ -64,5 +64,31 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[2]);
             
         }
+
+        private void cmdDelete1_Click(object sender, EventArgs e)
+        {
+            if (cmbScans1.SelectedItem != null)
+            {
+                Controller.DeleteByScan(cmbScans1.SelectedItem.ToString());
+                cmbScans1.SelectedItem = null;
+                cmbScans1.SelectedText = "Scan 1 auswählen";
+                loadGui();
+            }
+            else
+                MessageBox.Show(errorMessages[0]);
+        }
+
+        private void cmdDelete2_Click(object sender, EventArgs e)
+        {
+            if (cmbScans1.SelectedItem != null)
+            {
+                Controller.DeleteByScan(cmbScans2.SelectedItem.ToString());
+                cmbScans2.SelectedItem = null;
+                cmbScans2.SelectedText = "Scan 2 auswählen";
+                loadGui();
+            }
+            else
+                MessageBox.Show(errorMessages[1]);
+        }
     }
 }
