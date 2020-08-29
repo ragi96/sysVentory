@@ -7,7 +7,7 @@ namespace SysVentory
     class Scan
     {
         public string MachineName { get; set; }
-        public long Timestamp {get; set;}
+        public long Timestamp {get; set; }
         public Data Data { get; set; }
 
         public Scan(Data data)
@@ -22,13 +22,10 @@ namespace SysVentory
             Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         }
 
-        public String GetSelect()
-        {
-            string selectTxt = MachineName + " " + GetPrintDate();
-            return selectTxt;
-        }
+        public string GetSelect() => MachineName + " " + this.GetPrintDate();
 
-        private String GetPrintDate()
+
+        private string GetPrintDate()
         {
             // First make a System.DateTime equivalent to the UNIX Epoch.
             System.DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
@@ -40,5 +37,7 @@ namespace SysVentory
             // use the standard formatting methods of the DateTime object.
             return dateTime.ToShortDateString() + " " + dateTime.ToShortTimeString();
         }
+
+        public override string ToString() => this.GetSelect() + ":\r\n" + Data.ToString();
     }
 }

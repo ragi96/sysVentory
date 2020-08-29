@@ -43,10 +43,10 @@
             // 
             // CmdScan
             // 
-            this.CmdScan.Location = new System.Drawing.Point(375, 600);
+            this.CmdScan.Location = new System.Drawing.Point(255, 600);
             this.CmdScan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CmdScan.Name = "CmdScan";
-            this.CmdScan.Size = new System.Drawing.Size(179, 29);
+            this.CmdScan.Size = new System.Drawing.Size(436, 29);
             this.CmdScan.TabIndex = 0;
             this.CmdScan.Text = "Scanne diesen Computer";
             this.CmdScan.UseVisualStyleBackColor = true;
@@ -58,14 +58,15 @@
             this.TxtOut1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut1.Multiline = true;
             this.TxtOut1.Name = "TxtOut1";
+            this.TxtOut1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtOut1.Size = new System.Drawing.Size(436, 305);
             this.TxtOut1.TabIndex = 1;
             // 
             // cmdDiff
             // 
-            this.cmdDiff.Location = new System.Drawing.Point(384, 414);
+            this.cmdDiff.Location = new System.Drawing.Point(255, 414);
             this.cmdDiff.Name = "cmdDiff";
-            this.cmdDiff.Size = new System.Drawing.Size(183, 29);
+            this.cmdDiff.Size = new System.Drawing.Size(436, 29);
             this.cmdDiff.TabIndex = 4;
             this.cmdDiff.Text = "Delta berechnene";
             this.cmdDiff.UseVisualStyleBackColor = true;
@@ -113,6 +114,7 @@
             this.TxtOut2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut2.Multiline = true;
             this.TxtOut2.Name = "TxtOut2";
+            this.TxtOut2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtOut2.Size = new System.Drawing.Size(436, 305);
             this.TxtOut2.TabIndex = 9;
             // 
@@ -122,6 +124,7 @@
             this.txtDiff.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtDiff.Multiline = true;
             this.txtDiff.Name = "txtDiff";
+            this.txtDiff.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDiff.Size = new System.Drawing.Size(436, 145);
             this.txtDiff.TabIndex = 10;
             // 

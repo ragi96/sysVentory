@@ -61,5 +61,14 @@ namespace SysVentory.ThirdParty
                 }
             }
         }
+
+        public override string ToString()
+        {
+            string data = "";
+            foreach (Item item in this) {
+                data += item.ToString() + "\r\n";
+            }
+            return data;
+        }
     }
 }

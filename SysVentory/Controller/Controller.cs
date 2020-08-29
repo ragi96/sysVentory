@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using SysVentory.ThirdParty;
+using System.Linq;
+
+/*
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using JsonDiffPatchDotNet;
+*/
 
 namespace SysVentory
 {
@@ -45,9 +49,7 @@ namespace SysVentory
             foreach (Scan scan in Storage.Scans)
             {
                 if (scan.GetSelect() == selected)
-                {
                     return scan;
-                }
             }
             return new Scan();
         }
@@ -57,18 +59,18 @@ namespace SysVentory
             Scan scan1 = FindScanBySelected(selected1);
             Scan scan2 = FindScanBySelected(selected2);
 
-            JsonDiffPatch jdp = new JsonDiffPatch();
-            JToken left = JToken.Parse(JsonConvert.SerializeObject(scan1));
-            JToken right =JToken.Parse(JsonConvert.SerializeObject(scan2));
 
-            JToken diff = jdp.Diff(left, right);
-            if (diff != null)
+            IEnumerable<string> set1 = scan1.ToString().Split(' ').Distinct();
+            IEnumerable<string> set2 = scan2.ToString().Split(' ').Distinct();
+            if (set2.Count() > set1.Count())
             {
-                return diff.ToString();
+                List<string> diffList = set2.Except(set1).ToList();
+                return string.Join(" ", diffList);
             }
-            else 
+            else
             {
-                return "Kein Unterschied";
+                List<string> diffList = set1.Except(set2).ToList();
+                return string.Join(" ", diffList);
             }
         }
     }

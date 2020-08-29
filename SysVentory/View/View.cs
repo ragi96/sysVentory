@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -9,7 +8,7 @@ namespace SysVentory.View
     {
         private readonly Controller Controller;
 
-        private string[] errorMessages = {
+        private readonly string[] errorMessages = {
             "Bitte Wählen Sie Scan 1 aus!",
             "Bitte Wählen Sie Scan 2 aus!",
             "Bitte Wählen Sie Scan 1 und 2 aus!"
@@ -25,8 +24,7 @@ namespace SysVentory.View
             cmbScans1.Items.Clear();
             cmbScans2.Items.Clear();
             List<Scan> scans = Controller.GetScans();
-            foreach (Scan scan in scans)
-            {
+            foreach (Scan scan in scans) {
                 cmbScans1.Items.Add(scan.GetSelect());
                 cmbScans2.Items.Add(scan.GetSelect());
             }
@@ -41,41 +39,29 @@ namespace SysVentory.View
         private void cmdShow1_Click(object sender, EventArgs e)
         {
             if (cmbScans1.SelectedItem != null) {
-                string selected1 = cmbScans1.SelectedItem.ToString();
-                Scan selectedScan = Controller.FindScanBySelected(selected1);
-                TxtOut1.Text += JsonConvert.SerializeObject(selectedScan, Formatting.Indented);
+                Scan selectedScan = Controller.FindScanBySelected(cmbScans1.SelectedItem.ToString());
+                TxtOut1.Text += selectedScan.ToString();
             }
             else
-            {
                 MessageBox.Show(errorMessages[0]);
-            }
         }
 
         private void cmdShow2_Click(object sender, EventArgs e)
         {
-            if (cmbScans2.SelectedItem != null)
-            {
-                string selected1 = cmbScans2.SelectedItem.ToString();
-                Scan selectedScan = Controller.FindScanBySelected(selected1);
-                TxtOut2.Text += JsonConvert.SerializeObject(selectedScan, Formatting.Indented);
+            if (cmbScans2.SelectedItem != null) {
+                Scan selectedScan = Controller.FindScanBySelected(cmbScans2.SelectedItem.ToString());
+                TxtOut2.Text += selectedScan.ToString();
             }
             else
-            {
                 MessageBox.Show(errorMessages[1]);
 
-            }
         }
         private void cmdDiff_Click(object sender, EventArgs e)
         {
             if (cmbScans1.SelectedItem != null && cmbScans2.SelectedItem != null)
-            {
-                string diff = Controller.GetDiffByTwoSelected(cmbScans1.SelectedItem.ToString(), cmbScans2.SelectedItem.ToString());
-                txtDiff.Text += diff;
-            }
+                txtDiff.Text = Controller.GetDiffByTwoSelected(cmbScans1.SelectedItem.ToString(), cmbScans2.SelectedItem.ToString());
             else
-            {
                 MessageBox.Show(errorMessages[2]);
-            }
             
         }
     }

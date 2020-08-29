@@ -6,7 +6,7 @@ namespace SysVentory
     class File
     {
         public List<Scan> Scans { get; set; }
-        const string filePath = "Scans.txt";
+        const string filePath = "scans.json";
 
         public File()
         {
@@ -24,9 +24,7 @@ namespace SysVentory
             Scans.Add(scan);
 
             if (System.IO.File.Exists(filePath))
-            {
                 System.IO.File.Delete(filePath);
-            }
 
             string scanJson = JsonConvert.SerializeObject(Scans);
             System.IO.File.WriteAllText(filePath, scanJson);

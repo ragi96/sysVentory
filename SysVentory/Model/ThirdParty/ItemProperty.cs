@@ -8,5 +8,12 @@
 
         public string Name { get; }
         public object Value { get; }
+
+        public override string ToString() {
+            if (Value != null)
+                return Name + " " + Value.ToString();
+            else
+                return "";
+        }
     }
 }

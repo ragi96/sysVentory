@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 
@@ -38,6 +39,7 @@ namespace Datasource {
                 foreach (var p in queryObj.Properties) {
                     propList.Add(new ItemProperty(p.Name, p.Value));
                 }
+                Console.WriteLine(cls);
                 this.Add(new Item(cls, propList));
             }
 
