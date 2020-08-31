@@ -21,6 +21,8 @@ namespace SysVentory.View
         }
         private void loadGui()
         {
+            object cmbScan1 = cmbScans1.SelectedItem;
+            object cmbScan2 = cmbScans2.SelectedItem;
             cmbScans1.Items.Clear();
             cmbScans2.Items.Clear();
             List<Scan> scans = Controller.GetScans();
@@ -28,6 +30,11 @@ namespace SysVentory.View
                 cmbScans1.Items.Add(scan.GetSelect());
                 cmbScans2.Items.Add(scan.GetSelect());
             }
+            if (cmbScan1 != null)
+                cmbScans1.SelectedItem = cmbScan1;
+
+            if (cmbScan2 != null)
+                cmbScans2.SelectedItem = cmbScan2;
         }
 
         private void CmdScan_Click(object sender, EventArgs e)
