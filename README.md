@@ -17,7 +17,7 @@ Für jedes Gerät wird eine eigene Datei angelegt **Armando**
 
 die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael**
 
-Geileres Delta **Rafael**
+Geileres Delta **Rafael** diff match patch
 
 Inline Comments **Lukas**
 
