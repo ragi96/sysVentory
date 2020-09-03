@@ -1,15 +1,47 @@
 # sysVentory
 
-## To-Do
-1. Scan
-2. Scan To File (JSON) & pro Scan Timestamp, pro PC 1 File
-3. Model Data Anpassen / Nur Speichern in Data was benötigt wird (Weniger Ressourcen!) 
-4. Windows Forms (Liste aller Scans, Anzeige 1 Scan, Vergleich 2 Scans, Scan ausführen)
-5. Klassendiagramm
+### Funktionale Anforderungen
+&#9745; Inventarisierungsscan kann manuell ausgelöst werden.
 
-### Optional
-1. Scan Delta verschiedener Rechner
-2. Scan JSON/File löschen
+&#9745; Daten werden in einer Datei strukturiert gespeichert.
+
+Für jedes Gerät wird eine eigene Datei angelegt **Armando**
+
+&#9745; Jeder Scan wird mit Datum und Uhrzeit in der Datei abgelegt.
+
+&#9745; Deltas zwischen zwei Scans können sichtbar visualisiert werden.
+
+&#9745; Bereits erfolgte Scans können jederzeit wieder betrachtet werden.
+
+&#9745; Die Inventarisierungs-Historie eines einzelnen Elements kann explizit betrachtet und die ganze Chronik hinsichtlich Scans 
+
+die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael**
+
+Geileres Delta **Rafael**
+
+Inline Comments **Lukas**
+
+### Optionale Anforderungen
+Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
+
+&#9745; Deltas von Hard- sowie Softwareinventare verschiedener Rechner können visualisiert werden.
+
+
+### Nicht funktionale Anforderungen
+&#9745; Die Applikation wird in VisualStudio 2019 mit C# und Windows-Forms erstellt.
+
+&#9745; Es werden nur Form-Komponenten verwendet, welche auch im Unterricht besprochen und eingesetzt wurden.
+
+Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas**
+
+Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
+
+&#9745; Die Architektur der Applikation setzt das MVC-Pattern um.
+ 
+&#9745; Es werden die Konzepte der objektorientierten Programmierung umgesetzt.
+
+
+
 
 
 ## Important
