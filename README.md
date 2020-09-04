@@ -15,9 +15,9 @@ Für jedes Gerät wird eine eigene Datei angelegt **Armando**
 
 &#9745; Die Inventarisierungs-Historie eines einzelnen Elements kann explizit betrachtet und die ganze Chronik hinsichtlich Scans 
 
-die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael**
+&#9745; die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael** **Erledigt 04.09.2020**
 
-Geileres Delta **Rafael** diff match patch
+&#9745; Geileres Delta **Rafael** diff match patch **Erledigt 04.09.2020**
 
 Inline Comments **Lukas**
 
