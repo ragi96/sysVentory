@@ -66,9 +66,10 @@ namespace SysVentory.ThirdParty
         {
             string data = "";
             foreach (Item item in this) {
-                data += item.ToString() + "\r\n";
+                data += item.ToString() + Environment.NewLine;
             }
             return data;
         }
+
     }
 }

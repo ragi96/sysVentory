@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using SysVentory.ThirdParty;
 using System.Linq;
-
-/*
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using JsonDiffPatchDotNet;
-*/
+using DiffMatchPatch;
 
 namespace SysVentory
 {
+
     class Controller
     {
         private File Storage { get; set; }
@@ -39,6 +35,11 @@ namespace SysVentory
             return Storage.Scans;
         }
 
+        public List<Delta> GetDeltas()
+        {
+            return Storage.Deltas;
+        }
+
         public File GetStorage()
         {
             return Storage;
@@ -52,6 +53,16 @@ namespace SysVentory
                     return scan;
             }
             return new Scan();
+        }
+
+        public Delta FindDeltaBySelected(string selected)
+        {
+            foreach (Delta delta in Storage.Deltas)
+            {
+                if (delta.Title == selected)
+                    return delta;
+            }
+            return new Delta();
         }
 
         public string GetDiffByTwoSelected(string selected1, string selected2)
@@ -71,6 +82,21 @@ namespace SysVentory
             {
                 List<string> diffList = set1.Except(set2).ToList();
                 return string.Join(" ", diffList);
+            }
+        }
+
+        public Delta GetListDiffByTwoSelected(string selected1, string selected2)
+        {
+            if (FindDeltaBySelected(selected1 + " " + selected2).Title == "")
+            {
+                Scan scan1 = FindScanBySelected(selected1);
+                Scan scan2 = FindScanBySelected(selected2);
+                Delta newDelta = new Delta(scan1, scan2);
+                Storage.WriteDelta(newDelta);
+                return newDelta;
+            }
+            else {
+                return FindDeltaBySelected(selected1 + " " + selected2);
             }
         }
 

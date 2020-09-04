@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace SysVentory
@@ -6,16 +7,40 @@ namespace SysVentory
     class File
     {
         public List<Scan> Scans { get; set; }
-        const string filePath = "scans.json";
+        public List<Delta> Deltas { get; set; }
+        const string folder = "data";
+        const string filePath = folder + "/scans.json";
+        const string deltaFilePath = folder + "/delta.json";
 
         public File()
         {
             Scans = new List<Scan>();
+            Deltas = new List<Delta>();
+            // Create Folder
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
 
+            // Scan init
             if (System.IO.File.Exists(filePath))
             {
                 string scanJson = System.IO.File.ReadAllText(filePath);
                 Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
+            }
+            else
+            {
+                System.IO.File.Create(filePath);
+            }
+            // Delta init
+            if (System.IO.File.Exists(deltaFilePath))
+            {
+                string scanJson = System.IO.File.ReadAllText(deltaFilePath);
+                Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
+            }
+            else
+            {
+                System.IO.File.Create(deltaFilePath);
             }
         }
 
@@ -42,6 +67,17 @@ namespace SysVentory
             Scans.Remove(toDelete);
             string newScanJson = JsonConvert.SerializeObject(Scans);
             System.IO.File.WriteAllText(filePath, newScanJson);
+        }
+
+        public void WriteDelta(Delta delta)
+        {
+            Deltas.Add(delta);
+
+            if (System.IO.File.Exists(deltaFilePath))
+                System.IO.File.Delete(deltaFilePath);
+
+            string scanJson = JsonConvert.SerializeObject(Deltas);
+            System.IO.File.WriteAllText(deltaFilePath, scanJson);
         }
     }
 }
