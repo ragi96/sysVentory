@@ -124,7 +124,7 @@ namespace SysVentory.View
 
         private void cmdDelete2_Click(object sender, EventArgs e)
         {
-            if (cmbScans1.SelectedItem != null)
+            if (cmbScans2.SelectedItem != null)
             {
                 Controller.DeleteByScan(cmbScans2.SelectedItem.ToString());
                 cmbScans2.SelectedItem = null;
@@ -148,10 +148,10 @@ namespace SysVentory.View
                 switch (aDiff.operation)
                 {
                     case Operation.INSERT:
-                        high.color = Color.Green;
+                        high.color = Color.GreenYellow;
                         break;
                     case Operation.DELETE:
-                        high.color = Color.Red;
+                        high.color = Color.OrangeRed;
                         break;
                     case Operation.EQUAL:
                         high.color = Color.White;
