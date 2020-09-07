@@ -48,15 +48,19 @@ namespace SysVentory.View
 
             // load scans
             List<Scan> scans = Controller.GetScans();
-            foreach (Scan scan in scans) {
-                cmbScans1.Items.Add(scan.GetSelect());
-                cmbScans2.Items.Add(scan.GetSelect());
+            if(scans != null) { 
+                foreach (Scan scan in scans) {
+                    cmbScans1.Items.Add(scan.GetSelect());
+                    cmbScans2.Items.Add(scan.GetSelect());
+                }
             }
             // load deltas
             List<Delta> deltas = Controller.GetDeltas();
-            foreach (Delta delta in deltas)
-                cmbDeltas.Items.Add(delta.Title);
-
+            if (deltas != null)
+            {
+                foreach (Delta delta in deltas)
+                    cmbDeltas.Items.Add(delta.Title);
+            }
            
             if (cmbScan1 != null)
                 cmbScans1.SelectedItem = cmbScan1;

@@ -26,21 +26,18 @@ namespace SysVentory
             if (System.IO.File.Exists(filePath))
             {
                 string scanJson = System.IO.File.ReadAllText(filePath);
-                Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
-            }
-            else
-            {
-                System.IO.File.Create(filePath);
+                if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null) {
+                    Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
+                };
             }
             // Delta init
             if (System.IO.File.Exists(deltaFilePath))
             {
                 string scanJson = System.IO.File.ReadAllText(deltaFilePath);
-                Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
-            }
-            else
-            {
-                System.IO.File.Create(deltaFilePath);
+                if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
+                {
+                    Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
+                }
             }
         }
 
