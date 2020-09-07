@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using DiffMatchPatch;
+using System;
 using System.Collections.Generic;
-using DiffMatchPatch;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace SysVentory.View
 {
@@ -35,23 +35,23 @@ namespace SysVentory.View
         {
             InitializeComponent();
             Controller = new Controller();
-            loadGui();
+            LoadGui();
         }
-        private void loadGui()
+        private void LoadGui()
         {
-            object cmbScan1 = cmbScans1.SelectedItem;
-            object cmbScan2 = cmbScans2.SelectedItem;
-            object cmbDelta = cmbDeltas.SelectedItem;
-            cmbScans1.Items.Clear();
-            cmbScans2.Items.Clear();
-            cmbDeltas.Items.Clear();
+            object cmbScan1 = CmbScans1.SelectedItem;
+            object cmbScan2 = CmbScans2.SelectedItem;
+            object cmbDelta = CmbDeltas.SelectedItem;
+            CmbScans1.Items.Clear();
+            CmbScans2.Items.Clear();
+            CmbDeltas.Items.Clear();
 
             // load scans
             List<Scan> scans = Controller.GetScans();
             if(scans != null) { 
                 foreach (Scan scan in scans) {
-                    cmbScans1.Items.Add(scan.GetSelect());
-                    cmbScans2.Items.Add(scan.GetSelect());
+                    CmbScans1.Items.Add(scan.GetSelect());
+                    CmbScans2.Items.Add(scan.GetSelect());
                 }
             }
             // load deltas
@@ -59,91 +59,91 @@ namespace SysVentory.View
             if (deltas != null)
             {
                 foreach (Delta delta in deltas)
-                    cmbDeltas.Items.Add(delta.Title);
+                    CmbDeltas.Items.Add(delta.Title);
             }
            
             if (cmbScan1 != null)
-                cmbScans1.SelectedItem = cmbScan1;
+                CmbScans1.SelectedItem = cmbScan1;
 
             if (cmbScan2 != null)
-                cmbScans2.SelectedItem = cmbScan2;
+                CmbScans2.SelectedItem = cmbScan2;
 
             if (cmbDelta != null)
-                cmbDeltas.SelectedItem = cmbDelta;
+                CmbDeltas.SelectedItem = cmbDelta;
         }
 
         private void CmdScan_Click(object sender, EventArgs e)
         {
             Controller.ScanNow();
-            loadGui();
+            LoadGui();
         }
 
-        private void cmdShow1_Click(object sender, EventArgs e)
+        private void CmdShow1_Click(object sender, EventArgs e)
         {
-            if (cmbScans1.SelectedItem != null) {
-                Scan selectedScan = Controller.FindScanBySelected(cmbScans1.SelectedItem.ToString());
+            if (CmbScans1.SelectedItem != null) {
+                Scan selectedScan = Controller.FindScanBySelected(CmbScans1.SelectedItem.ToString());
                 TxtOut1.Text += selectedScan.ToString();
             }
             else
                 MessageBox.Show(errorMessages[0]);
         }
 
-        private void cmdShow2_Click(object sender, EventArgs e)
+        private void CmdShow2_Click(object sender, EventArgs e)
         {
-            if (cmbScans2.SelectedItem != null) {
-                Scan selectedScan = Controller.FindScanBySelected(cmbScans2.SelectedItem.ToString());
+            if (CmbScans2.SelectedItem != null) {
+                Scan selectedScan = Controller.FindScanBySelected(CmbScans2.SelectedItem.ToString());
                 TxtOut2.Text += selectedScan.ToString();
             }
             else
                 MessageBox.Show(errorMessages[1]);
 
         }
-        private void cmdDiff_Click(object sender, EventArgs e)
+        private void CmdDiff_Click(object sender, EventArgs e)
         {
-            if (cmbScans1.SelectedItem != null && cmbScans2.SelectedItem != null) {
-                Delta delta = Controller.GetListDiffByTwoSelected(cmbScans1.SelectedItem.ToString(), cmbScans2.SelectedItem.ToString());
-                writeDiffs(delta.Diffs);
-                loadGui();
-                cmbDeltas.ResetText();
-                cmbDeltas.SelectedText = cmbScans1.SelectedItem.ToString() + " " + cmbScans2.SelectedItem.ToString();
+            if (CmbScans1.SelectedItem != null && CmbScans2.SelectedItem != null) {
+                Delta delta = Controller.GetListDiffByTwoSelected(CmbScans1.SelectedItem.ToString(), CmbScans2.SelectedItem.ToString());
+                WriteDiffs(delta.Diffs);
+                LoadGui();
+                CmbDeltas.ResetText();
+                CmbDeltas.SelectedText = CmbScans1.SelectedItem.ToString() + " " + CmbScans2.SelectedItem.ToString();
             } else
                 MessageBox.Show(errorMessages[2]);
         }
-        private void cmdDelete1_Click(object sender, EventArgs e)
+        private void CmdDelete1_Click(object sender, EventArgs e)
         {
-            if (cmbScans1.SelectedItem != null)
+            if (CmbScans1.SelectedItem != null)
             {
-                Controller.DeleteByScan(cmbScans1.SelectedItem.ToString());
-                cmbScans1.SelectedItem = null;
-                cmbScans1.SelectedText = "Scan 1 auswählen";
-                loadGui();
+                Controller.DeleteByScan(CmbScans1.SelectedItem.ToString());
+                CmbScans1.SelectedItem = null;
+                CmbScans1.SelectedText = "Scan 1 auswählen";
+                LoadGui();
             }
             else
                 MessageBox.Show(errorMessages[0]);
         }
 
-        private void cmdDelete2_Click(object sender, EventArgs e)
+        private void CmdDelete2_Click(object sender, EventArgs e)
         {
-            if (cmbScans2.SelectedItem != null)
+            if (CmbScans2.SelectedItem != null)
             {
-                Controller.DeleteByScan(cmbScans2.SelectedItem.ToString());
-                cmbScans2.SelectedItem = null;
-                cmbScans2.SelectedText = "Scan 2 auswählen";
-                loadGui();
+                Controller.DeleteByScan(CmbScans2.SelectedItem.ToString());
+                CmbScans2.SelectedItem = null;
+                CmbScans2.SelectedText = "Scan 2 auswählen";
+                LoadGui();
             }
             else
                 MessageBox.Show(errorMessages[1]);
         }
 
-        private void writeDiffs(List<Diff> diffs)
+        private void WriteDiffs(List<Diff> diffs)
         {
-            rtbDiff1.Text = "";
+            RtbDiff1.Text = "";
             List<Highlights> highlightList = new List<Highlights>();
             foreach (Diff aDiff in diffs)
             {
                 Highlights high = new Highlights();
-                high.startpos = rtbDiff1.TextLength;
-                rtbDiff1.Text += aDiff.text;
+                high.startpos = RtbDiff1.TextLength;
+                RtbDiff1.Text += aDiff.text;
                 high.length = aDiff.text.Length;
                 switch (aDiff.operation)
                 {
@@ -159,25 +159,25 @@ namespace SysVentory.View
                 }
                 highlightList.Add(high);
             }
-            highlightDiff(highlightList);
+            HighlightDiff(highlightList);
         }
 
-        private void highlightDiff(List<Highlights> highlights)
+        private void HighlightDiff(List<Highlights> highlights)
         {
             foreach (Highlights high in highlights)
             {
-                rtbDiff1.Select(high.startpos, high.length);
-                rtbDiff1.SelectionBackColor = high.color;
+                RtbDiff1.Select(high.startpos, high.length);
+                RtbDiff1.SelectionBackColor = high.color;
             }
         }
 
-        private void cmdShowDiff_Click(object sender, EventArgs e)
+        private void CmdShowDiff_Click(object sender, EventArgs e)
         {
-            if (cmbDeltas.SelectedItem != null)
+            if (CmbDeltas.SelectedItem != null)
             {
-                Delta selectedDelta = Controller.FindDeltaBySelected(cmbDeltas.SelectedItem.ToString());
-                writeDiffs(selectedDelta.Diffs);
-                loadGui();
+                Delta selectedDelta = Controller.FindDeltaBySelected(CmbDeltas.SelectedItem.ToString());
+                WriteDiffs(selectedDelta.Diffs);
+                LoadGui();
             }
             else
                 MessageBox.Show(errorMessages[3]);
