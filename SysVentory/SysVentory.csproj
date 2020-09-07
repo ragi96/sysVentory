@@ -90,12 +90,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datasource\Datasource.csproj">
-      <Project>{33f593e3-b570-484c-9365-75c0267328b5}</Project>
-      <Name>Datasource</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="View\View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
