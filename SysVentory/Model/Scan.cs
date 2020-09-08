@@ -17,6 +17,13 @@ namespace SysVentory
             Data = data;
         }
 
+        public Scan(string machineName, long timestamp, Data data)
+        {
+            MachineName = machineName;
+            Timestamp = timestamp;
+            Data = data;
+        }
+
         public Scan() {
             MachineName = Environment.MachineName;
             Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();

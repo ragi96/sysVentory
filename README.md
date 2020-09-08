@@ -32,12 +32,12 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 
 &#9745; Es werden nur Form-Komponenten verwendet, welche auch im Unterricht besprochen und eingesetzt wurden.
 
-Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas**
+&#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas Erledigt 08.09.2020**
 
 Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
 
 &#9745; Die Architektur der Applikation setzt das MVC-Pattern um.
- 
+
 &#9745; Es werden die Konzepte der objektorientierten Programmierung umgesetzt.
 
 

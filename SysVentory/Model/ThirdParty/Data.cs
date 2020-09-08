@@ -9,6 +9,8 @@ namespace SysVentory.ThirdParty
     public class Data : List<Item> {
         public Data() {}
 
+        public Data(IEnumerable<Item> items) : base(items) { }
+
         public static async void ReadAsync(Action<Data> callback) {
             var data = new Data();
             await Task.Run(() => {

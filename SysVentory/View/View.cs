@@ -102,7 +102,8 @@ namespace SysVentory.View
         {
             if (CmbScans1.SelectedItem != null && CmbScans2.SelectedItem != null) {
                 Delta delta = Controller.GetListDiffByTwoSelected(CmbScans1.SelectedItem.ToString(), CmbScans2.SelectedItem.ToString());
-                WriteDiffs(delta.Diffs);
+                WriteDiffs(delta.DiffsSoftware, RtbDiffSoftware);
+                WriteDiffs(delta.DiffsHardware, RtbDiffHardware);
                 LoadGui();
                 CmbDeltas.ResetText();
                 CmbDeltas.SelectedText = CmbScans1.SelectedItem.ToString() + " " + CmbScans2.SelectedItem.ToString();
@@ -135,15 +136,15 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[1]);
         }
 
-        private void WriteDiffs(List<Diff> diffs)
+        private void WriteDiffs(List<Diff> diffs, RichTextBox rtb)
         {
-            RtbDiff1.Text = "";
+            rtb.Text = "";
             List<Highlights> highlightList = new List<Highlights>();
             foreach (Diff aDiff in diffs)
             {
                 Highlights high = new Highlights();
-                high.startpos = RtbDiff1.TextLength;
-                RtbDiff1.Text += aDiff.text;
+                high.startpos = rtb.TextLength;
+                rtb.Text += aDiff.text;
                 high.length = aDiff.text.Length;
                 switch (aDiff.operation)
                 {
@@ -151,7 +152,7 @@ namespace SysVentory.View
                         high.color = Color.GreenYellow;
                         break;
                     case Operation.DELETE:
-                        high.color = Color.OrangeRed;
+                        high.color = Color.Tomato;
                         break;
                     case Operation.EQUAL:
                         high.color = Color.White;
@@ -159,15 +160,15 @@ namespace SysVentory.View
                 }
                 highlightList.Add(high);
             }
-            HighlightDiff(highlightList);
+            HighlightDiff(highlightList, rtb);
         }
 
-        private void HighlightDiff(List<Highlights> highlights)
+        private void HighlightDiff(List<Highlights> highlights, RichTextBox rtb)
         {
             foreach (Highlights high in highlights)
             {
-                RtbDiff1.Select(high.startpos, high.length);
-                RtbDiff1.SelectionBackColor = high.color;
+                rtb.Select(high.startpos, high.length);
+                rtb.SelectionBackColor = high.color;
             }
         }
 
@@ -176,7 +177,8 @@ namespace SysVentory.View
             if (CmbDeltas.SelectedItem != null)
             {
                 Delta selectedDelta = Controller.FindDeltaBySelected(CmbDeltas.SelectedItem.ToString());
-                WriteDiffs(selectedDelta.Diffs);
+                WriteDiffs(selectedDelta.DiffsSoftware, RtbDiffSoftware);
+                WriteDiffs(selectedDelta.DiffsHardware, RtbDiffHardware);
                 LoadGui();
             }
             else
