@@ -47,8 +47,8 @@
             this.RtbDiffHardware = new System.Windows.Forms.RichTextBox();
             this.LblHardware = new System.Windows.Forms.Label();
             this.LblSoftware = new System.Windows.Forms.Label();
-            this.cmdDeleteComputer = new System.Windows.Forms.Button();
-            this.cmbDeleteComputer = new System.Windows.Forms.ComboBox();
+            this.CmdDeleteComputer = new System.Windows.Forms.Button();
+            this.CmbDeleteComputer = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CmdScan
@@ -247,32 +247,32 @@
             this.LblSoftware.TabIndex = 22;
             this.LblSoftware.Text = "Software:";
             // 
-            // cmdDeleteComputer
+            // CmdDeleteComputer
             // 
-            this.cmdDeleteComputer.Location = new System.Drawing.Point(1155, 454);
-            this.cmdDeleteComputer.Name = "cmdDeleteComputer";
-            this.cmdDeleteComputer.Size = new System.Drawing.Size(185, 29);
-            this.cmdDeleteComputer.TabIndex = 23;
-            this.cmdDeleteComputer.Text = "Scans eines Gerätes löschen";
-            this.cmdDeleteComputer.UseVisualStyleBackColor = true;
-            this.cmdDeleteComputer.Click += new System.EventHandler(this.cmdDeleteComputer_Click);
+            this.CmdDeleteComputer.Location = new System.Drawing.Point(1155, 454);
+            this.CmdDeleteComputer.Name = "CmdDeleteComputer";
+            this.CmdDeleteComputer.Size = new System.Drawing.Size(185, 29);
+            this.CmdDeleteComputer.TabIndex = 23;
+            this.CmdDeleteComputer.Text = "Scans eines Gerätes löschen";
+            this.CmdDeleteComputer.UseVisualStyleBackColor = true;
+            this.CmdDeleteComputer.Click += new System.EventHandler(this.cmdDeleteComputer_Click);
             // 
-            // cmbDeleteComputer
+            // CmbDeleteComputer
             // 
-            this.cmbDeleteComputer.FormattingEnabled = true;
-            this.cmbDeleteComputer.Location = new System.Drawing.Point(921, 459);
-            this.cmbDeleteComputer.Name = "cmbDeleteComputer";
-            this.cmbDeleteComputer.Size = new System.Drawing.Size(213, 21);
-            this.cmbDeleteComputer.TabIndex = 24;
-            this.cmbDeleteComputer.Text = "Delta auswählen";
+            this.CmbDeleteComputer.FormattingEnabled = true;
+            this.CmbDeleteComputer.Location = new System.Drawing.Point(906, 459);
+            this.CmbDeleteComputer.Name = "CmbDeleteComputer";
+            this.CmbDeleteComputer.Size = new System.Drawing.Size(228, 21);
+            this.CmbDeleteComputer.TabIndex = 24;
+            this.CmbDeleteComputer.Text = "Computer auswählen";
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 548);
-            this.Controls.Add(this.cmbDeleteComputer);
-            this.Controls.Add(this.cmdDeleteComputer);
+            this.ClientSize = new System.Drawing.Size(1352, 505);
+            this.Controls.Add(this.CmbDeleteComputer);
+            this.Controls.Add(this.CmdDeleteComputer);
             this.Controls.Add(this.LblSoftware);
             this.Controls.Add(this.LblHardware);
             this.Controls.Add(this.RtbDiffHardware);
@@ -321,7 +321,7 @@
         private System.Windows.Forms.RichTextBox RtbDiffHardware;
         private System.Windows.Forms.Label LblHardware;
         private System.Windows.Forms.Label LblSoftware;
-        private System.Windows.Forms.Button cmdDeleteComputer;
-        private System.Windows.Forms.ComboBox cmbDeleteComputer;
+        private System.Windows.Forms.Button CmdDeleteComputer;
+        private System.Windows.Forms.ComboBox CmbDeleteComputer;
     }
 }

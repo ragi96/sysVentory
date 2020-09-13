@@ -39,7 +39,7 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 ### To-Do
 Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
 
-View reload **Rafael**
+&#9745; View reload **Rafael**
 
 Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
 

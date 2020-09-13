@@ -38,7 +38,7 @@ namespace SysVentory
         }
 
         //load all Json files in data folder
-        public string[] getComputers()
+        public string[] GetComputers()
         {
             return Directory.GetFiles(@"data");
         }
@@ -114,7 +114,7 @@ namespace SysVentory
 
         public void DeleteComputerScan(string selectedComputer)
         {
-            global::System.IO.File.Delete(selectedComputer);
+            File.Delete(selectedComputer);
         }
     }
 }

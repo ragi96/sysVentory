@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.IO;
-using System.Linq;
 
 namespace SysVentory.View
 {
@@ -14,13 +12,14 @@ namespace SysVentory.View
     {
 
 
-        private readonly Controller Controller;
+        private Controller Controller;
 
         private readonly string[] errorMessages = {
             "Bitte wählen Sie Scan 1 aus!",
             "Bitte wählen Sie Scan 2 aus!",
             "Bitte wählen Sie Scan 1 und 2 aus!",
-            "Bitte wählen Sie ein Delta aus!"
+            "Bitte wählen Sie ein Delta aus!",
+            "Bitte wählen Sie einen Computer aus!"
         };
 
         /*
@@ -39,7 +38,7 @@ namespace SysVentory.View
             Controller = new Controller();
             LoadGui();
         }
-        private void LoadGui()
+        private void LoadGui(bool hardScanReset = false)
         {
             object cmbScan1 = CmbScans1.SelectedItem;
             object cmbScan2 = CmbScans2.SelectedItem;
@@ -47,6 +46,16 @@ namespace SysVentory.View
             CmbScans1.Items.Clear();
             CmbScans2.Items.Clear();
             CmbDeltas.Items.Clear();
+            CmbDeleteComputer.Items.Clear();
+
+            if (hardScanReset == true) {
+                Controller = new Controller();
+                CmbDeleteComputer.ResetText();
+                CmbScans1.ResetText();
+                CmbScans2.ResetText();
+                TxtOut1.Text = "";
+                TxtOut2.Text = "";
+            }
 
             // load scans
             List<Scan> scans = Controller.GetScans();
@@ -72,11 +81,12 @@ namespace SysVentory.View
 
             if (cmbDelta != null)
                 CmbDeltas.SelectedItem = cmbDelta;
+            
             //load all scanned Computers
-            string[] Computers = Controller.getComputers();
+            string[] Computers = Controller.GetComputers();
             foreach (string s in Computers)
             {
-                cmbDeleteComputer.Items.Add(s);
+                CmbDeleteComputer.Items.Add(s);
             }
         }
 
@@ -195,12 +205,13 @@ namespace SysVentory.View
 
         private void cmdDeleteComputer_Click(object sender, EventArgs e)
         {
-            if (cmbDeleteComputer.SelectedItem != null)
+            if (CmbDeleteComputer.SelectedItem != null)
             {
-                Controller.DeleteComputerScan(cmbDeleteComputer.SelectedItem.ToString());
+                Controller.DeleteComputerScan(CmbDeleteComputer.SelectedItem.ToString());
+                LoadGui(true);
             }
             else
-                MessageBox.Show(errorMessages[0]);
+                MessageBox.Show(errorMessages[4]);
         }
     }
 }
