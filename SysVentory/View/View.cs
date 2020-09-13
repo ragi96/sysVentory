@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
+using System.Linq;
 
 namespace SysVentory.View
 {
@@ -70,6 +72,12 @@ namespace SysVentory.View
 
             if (cmbDelta != null)
                 CmbDeltas.SelectedItem = cmbDelta;
+            //load all scanned Computers
+            string[] Computers = Controller.getComputers();
+            foreach (string s in Computers)
+            {
+                cmbDeleteComputer.Items.Add(s);
+            }
         }
 
         private void CmdScan_Click(object sender, EventArgs e)
@@ -183,6 +191,16 @@ namespace SysVentory.View
             }
             else
                 MessageBox.Show(errorMessages[3]);
+        }
+
+        private void cmdDeleteComputer_Click(object sender, EventArgs e)
+        {
+            if (cmbDeleteComputer.SelectedItem != null)
+            {
+                Controller.DeleteComputerScan(cmbDeleteComputer.SelectedItem.ToString());
+            }
+            else
+                MessageBox.Show(errorMessages[0]);
         }
     }
 }

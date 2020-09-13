@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System;
 
 namespace SysVentory
 {
@@ -9,13 +10,17 @@ namespace SysVentory
         public List<Scan> Scans { get; set; }
         public List<Delta> Deltas { get; set; }
         const string folder = "data";
-        const string filePath = folder + "/scans.json";
+
         const string deltaFilePath = folder + "/delta.json";
+        readonly string Machinename = "undefinded";
+        readonly string filePath = folder + "/scans.json";
 
         public File()
         {
             Scans = new List<Scan>();
             Deltas = new List<Delta>();
+            Machinename = Environment.MachineName;
+            filePath = folder + "/" + Machinename + ".json";
             // Create Folder
             if (!Directory.Exists(folder))
             {
