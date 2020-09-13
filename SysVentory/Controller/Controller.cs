@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using SysVentory.ThirdParty;
 using System.Linq;
-using DiffMatchPatch;
-using System;
 using System.IO;
 
 namespace SysVentory
