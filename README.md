@@ -43,7 +43,7 @@ View reload **Rafael**
 
 Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
 
-Class File to Storage **Rafael**
+&#9745; Class File to Storage **Rafael**
 
 Scan anzeigen second time no change **Rafael**
 

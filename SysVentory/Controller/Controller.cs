@@ -10,11 +10,11 @@ namespace SysVentory
 
     class Controller
     {
-        private File Storage { get; set; }
+        private Storage Storage { get; set; }
 
         public Controller()
         {
-            Storage = new File();
+            Storage = new Storage();
         }
 
         public Scan ScanNow()
@@ -48,7 +48,7 @@ namespace SysVentory
             return Storage.Deltas;
         }
 
-        public File GetStorage()
+        public Storage GetStorage()
         {
             return Storage;
         }

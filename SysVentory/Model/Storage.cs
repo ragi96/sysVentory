@@ -5,7 +5,7 @@ using System;
 
 namespace SysVentory
 {
-    class File
+    class Storage
     {
         public List<Scan> Scans { get; set; }
         public List<Delta> Deltas { get; set; }
@@ -15,7 +15,7 @@ namespace SysVentory
         readonly string Machinename = "undefinded";
         readonly string filePath = folder + "/scans.json";
 
-        public File()
+        public Storage()
         {
             Scans = new List<Scan>();
             Deltas = new List<Delta>();

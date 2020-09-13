@@ -71,7 +71,7 @@
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\Delta.cs" />
     <Compile Include="Model\ThirdParty\Data.cs" />
-    <Compile Include="Model\File.cs" />
+    <Compile Include="Model\Storage.cs" />
     <Compile Include="Model\ThirdParty\DiffMatchPatch.cs" />
     <Compile Include="Model\ThirdParty\Item.cs" />
     <Compile Include="Model\ThirdParty\ItemProperty.cs" />
