@@ -2,6 +2,8 @@
 using SysVentory.ThirdParty;
 using System.Linq;
 using DiffMatchPatch;
+using System;
+using System.IO;
 
 namespace SysVentory
 {
@@ -33,6 +35,12 @@ namespace SysVentory
         public List<Scan> GetScans()
         {
             return Storage.Scans;
+        }
+
+        //load all Json files in data folder
+        public string[] getComputers()
+        {
+            return Directory.GetFiles(@"data");
         }
 
         public List<Delta> GetDeltas()
@@ -102,6 +110,11 @@ namespace SysVentory
 
         public void DeleteByScan(string selected) {
             Storage.DeleteScan(selected);
+        }
+
+        public void DeleteComputerScan(string selectedComputer)
+        {
+            global::System.IO.File.Delete(selectedComputer);
         }
     }
 }
