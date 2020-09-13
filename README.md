@@ -5,7 +5,7 @@
 
 &#9745; Daten werden in einer Datei strukturiert gespeichert.
 
-Für jedes Gerät wird eine eigene Datei angelegt **Armando**
+&#9745; Für jedes Gerät wird eine eigene Datei angelegt **Armando**
 
 &#9745; Jeder Scan wird mit Datum und Uhrzeit in der Datei abgelegt.
 
@@ -18,8 +18,6 @@ Für jedes Gerät wird eine eigene Datei angelegt **Armando**
 &#9745; die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael** **Erledigt 04.09.2020**
 
 &#9745; Geileres Delta **Rafael** diff match patch **Erledigt 04.09.2020**
-
-Inline Comments **Lukas**
 
 ### Optionale Anforderungen
 Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
@@ -34,11 +32,23 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 
 &#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas Erledigt 08.09.2020**
 
-Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
-
 &#9745; Die Architektur der Applikation setzt das MVC-Pattern um.
 
 &#9745; Es werden die Konzepte der objektorientierten Programmierung umgesetzt.
+
+### To-Do
+Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
+View reload
+Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
+Class File to Storage
+Scan anzeigen second time no change
+Delta save own folder
+Testing (2 Computer)
+RTB Readonly
+Timestamp fixen (Zeitzone)
+Inline Comments **Lukas**
+readme.txt schreiben
+Tab Reihenfolge
 
 
 
