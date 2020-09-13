@@ -179,6 +179,7 @@
             this.RtbDiffSoftware.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RtbDiffSoftware.Location = new System.Drawing.Point(904, 305);
             this.RtbDiffSoftware.Name = "RtbDiffSoftware";
+            this.RtbDiffSoftware.ReadOnly = true;
             this.RtbDiffSoftware.Size = new System.Drawing.Size(436, 133);
             this.RtbDiffSoftware.TabIndex = 16;
             this.RtbDiffSoftware.Text = "";
@@ -218,6 +219,7 @@
             this.RtbDiffHardware.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RtbDiffHardware.Location = new System.Drawing.Point(904, 151);
             this.RtbDiffHardware.Name = "RtbDiffHardware";
+            this.RtbDiffHardware.ReadOnly = true;
             this.RtbDiffHardware.Size = new System.Drawing.Size(436, 129);
             this.RtbDiffHardware.TabIndex = 20;
             this.RtbDiffHardware.Text = "";

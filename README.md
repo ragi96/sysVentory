@@ -51,7 +51,7 @@ Delta save own folder **Rafael**
 
 Testing (2 Computer)
 
-RTB Readonly **Rafael**
+&#9745; RTB Readonly **Rafael**
 
 Timestamp fixen (Zeitzone) **Lukas**
 
