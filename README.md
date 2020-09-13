@@ -38,17 +38,28 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 
 ### To-Do
 Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
-View reload
+
+View reload **Rafael**
+
 Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
-Class File to Storage
-Scan anzeigen second time no change
-Delta save own folder
+
+Class File to Storage **Rafael**
+
+Scan anzeigen second time no change **Rafael**
+
+Delta save own folder **Rafael**
+
 Testing (2 Computer)
-RTB Readonly
-Timestamp fixen (Zeitzone)
+
+RTB Readonly **Rafael**
+
+Timestamp fixen (Zeitzone) **Lukas**
+
 Inline Comments **Lukas**
-readme.txt schreiben
-Tab Reihenfolge
+
+readme.txt schreiben **Lukas**
+
+Tab Reihenfolge **Lukas**
 
 
 
