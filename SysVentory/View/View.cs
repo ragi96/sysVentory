@@ -90,7 +90,7 @@ namespace SysVentory.View
         {
             if (CmbScans1.SelectedItem != null) {
                 Scan selectedScan = Controller.FindScanBySelected(CmbScans1.SelectedItem.ToString());
-                TxtOut1.Text += selectedScan.ToString();
+                TxtOut1.Text = selectedScan.ToString();
             }
             else
                 MessageBox.Show(errorMessages[0]);
@@ -100,7 +100,7 @@ namespace SysVentory.View
         {
             if (CmbScans2.SelectedItem != null) {
                 Scan selectedScan = Controller.FindScanBySelected(CmbScans2.SelectedItem.ToString());
-                TxtOut2.Text += selectedScan.ToString();
+                TxtOut2.Text = selectedScan.ToString();
             }
             else
                 MessageBox.Show(errorMessages[1]);
