@@ -47,7 +47,7 @@ Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort 
 
 &#9745; Scan anzeigen second time no change **Rafael**
 
-Delta save own folder **Rafael**
+&#9745; Delta save own folder **Rafael**
 
 Testing (2 Computer)
 

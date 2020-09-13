@@ -175,6 +175,7 @@
             // 
             // RtbDiffSoftware
             // 
+            this.RtbDiffSoftware.BackColor = System.Drawing.Color.White;
             this.RtbDiffSoftware.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RtbDiffSoftware.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RtbDiffSoftware.Location = new System.Drawing.Point(904, 305);
@@ -215,6 +216,7 @@
             // 
             // RtbDiffHardware
             // 
+            this.RtbDiffHardware.BackColor = System.Drawing.Color.White;
             this.RtbDiffHardware.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RtbDiffHardware.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RtbDiffHardware.Location = new System.Drawing.Point(904, 151);

@@ -9,10 +9,13 @@ namespace SysVentory
     {
         public List<Scan> Scans { get; set; }
         public List<Delta> Deltas { get; set; }
-        const string folder = "data";
 
-        const string deltaFilePath = folder + "/delta.json";
+        const string deltaFolder = "deltas";
+        const string deltaFilePath = deltaFolder + "/" + "delta.json";
+
+        const string folder = "data";
         readonly string Machinename = "undefinded";
+
         readonly string filePath = folder + "/scans.json";
 
         public Storage()
@@ -23,26 +26,23 @@ namespace SysVentory
             filePath = folder + "/" + Machinename + ".json";
             // Create Folder
             if (!Directory.Exists(folder))
-            {
                 Directory.CreateDirectory(folder);
-            }
+            if (!Directory.Exists(deltaFolder))
+                Directory.CreateDirectory(deltaFolder);
 
             // Scan init
             if (System.IO.File.Exists(filePath))
             {
                 string scanJson = System.IO.File.ReadAllText(filePath);
-                if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null) {
+                if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null)
                     Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
-                };
             }
             // Delta init
             if (System.IO.File.Exists(deltaFilePath))
             {
                 string scanJson = System.IO.File.ReadAllText(deltaFilePath);
                 if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
-                {
                     Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
-                }
             }
         }
 
