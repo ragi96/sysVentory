@@ -84,20 +84,16 @@ namespace SysVentory
             Scan toDelete = new Scan();
             foreach (Scan singleScan in Scans) {
                 if (singleScan.GetSelect() == selectedScan)
-                    toDelete = singleScan;
-                    
+                    toDelete = singleScan;     
             }
             // Löschen aus allen Scans
             Scans.Remove(toDelete);
             string machineFilePath = folder + "/" + toDelete.GetFileName();
 
-            string machineScanJson = File.ReadAllText(machineFilePath);
-            List<Scan> machineScans = null;
-            if (JsonConvert.DeserializeObject<List<Scan>>(machineScanJson) != null)
-                machineScans = JsonConvert.DeserializeObject<List<Scan>>(machineScanJson);
-            
             //Löschen aus dem Machine JSON
-            string newScanJson = JsonConvert.SerializeObject(machineScans.Remove(toDelete));
+            List<Scan> machineScans = Scans.Where(s => s.MachineName == toDelete.MachineName).ToList();
+            machineScans.Remove(toDelete);
+            string newScanJson = JsonConvert.SerializeObject(machineScans);
             File.WriteAllText(machineFilePath, newScanJson);
         }
 
