@@ -76,9 +76,9 @@
             // 
             // CmdDiff
             // 
-            this.CmdDiff.Location = new System.Drawing.Point(904, 98);
+            this.CmdDiff.Location = new System.Drawing.Point(11, 489);
             this.CmdDiff.Name = "CmdDiff";
-            this.CmdDiff.Size = new System.Drawing.Size(436, 29);
+            this.CmdDiff.Size = new System.Drawing.Size(882, 29);
             this.CmdDiff.TabIndex = 12;
             this.CmdDiff.Text = "Neues Delta berechnen";
             this.CmdDiff.UseVisualStyleBackColor = true;
@@ -178,10 +178,10 @@
             this.RtbDiffSoftware.BackColor = System.Drawing.Color.White;
             this.RtbDiffSoftware.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RtbDiffSoftware.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RtbDiffSoftware.Location = new System.Drawing.Point(904, 305);
+            this.RtbDiffSoftware.Location = new System.Drawing.Point(904, 302);
             this.RtbDiffSoftware.Name = "RtbDiffSoftware";
             this.RtbDiffSoftware.ReadOnly = true;
-            this.RtbDiffSoftware.Size = new System.Drawing.Size(436, 133);
+            this.RtbDiffSoftware.Size = new System.Drawing.Size(436, 135);
             this.RtbDiffSoftware.TabIndex = 14;
             this.RtbDiffSoftware.Text = "";
             this.RtbDiffSoftware.WordWrap = false;
@@ -219,10 +219,10 @@
             this.RtbDiffHardware.BackColor = System.Drawing.Color.White;
             this.RtbDiffHardware.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RtbDiffHardware.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RtbDiffHardware.Location = new System.Drawing.Point(904, 151);
+            this.RtbDiffHardware.Location = new System.Drawing.Point(904, 133);
             this.RtbDiffHardware.Name = "RtbDiffHardware";
             this.RtbDiffHardware.ReadOnly = true;
-            this.RtbDiffHardware.Size = new System.Drawing.Size(436, 129);
+            this.RtbDiffHardware.Size = new System.Drawing.Size(436, 135);
             this.RtbDiffHardware.TabIndex = 13;
             this.RtbDiffHardware.Text = "";
             this.RtbDiffHardware.WordWrap = false;
@@ -230,7 +230,7 @@
             // LblHardware
             // 
             this.LblHardware.AutoSize = true;
-            this.LblHardware.Location = new System.Drawing.Point(903, 134);
+            this.LblHardware.Location = new System.Drawing.Point(903, 116);
             this.LblHardware.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.LblHardware.Name = "LblHardware";
             this.LblHardware.Size = new System.Drawing.Size(56, 13);
@@ -240,7 +240,7 @@
             // LblSoftware
             // 
             this.LblSoftware.AutoSize = true;
-            this.LblSoftware.Location = new System.Drawing.Point(903, 289);
+            this.LblSoftware.Location = new System.Drawing.Point(903, 286);
             this.LblSoftware.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.LblSoftware.Name = "LblSoftware";
             this.LblSoftware.Size = new System.Drawing.Size(52, 13);
@@ -249,9 +249,9 @@
             // 
             // CmdDeleteComputer
             // 
-            this.CmdDeleteComputer.Location = new System.Drawing.Point(1155, 454);
+            this.CmdDeleteComputer.Location = new System.Drawing.Point(905, 489);
             this.CmdDeleteComputer.Name = "CmdDeleteComputer";
-            this.CmdDeleteComputer.Size = new System.Drawing.Size(185, 29);
+            this.CmdDeleteComputer.Size = new System.Drawing.Size(434, 29);
             this.CmdDeleteComputer.TabIndex = 16;
             this.CmdDeleteComputer.Text = "Scans eines Gerätes löschen";
             this.CmdDeleteComputer.UseVisualStyleBackColor = true;
@@ -260,17 +260,18 @@
             // CmbDeleteComputer
             // 
             this.CmbDeleteComputer.FormattingEnabled = true;
-            this.CmbDeleteComputer.Location = new System.Drawing.Point(906, 459);
+            this.CmbDeleteComputer.Location = new System.Drawing.Point(904, 454);
             this.CmbDeleteComputer.Name = "CmbDeleteComputer";
-            this.CmbDeleteComputer.Size = new System.Drawing.Size(228, 21);
+            this.CmbDeleteComputer.Size = new System.Drawing.Size(436, 21);
             this.CmbDeleteComputer.TabIndex = 15;
             this.CmbDeleteComputer.Text = "Computer auswählen";
+            this.CmbDeleteComputer.SelectedIndexChanged += new System.EventHandler(this.CmbDeleteComputer_SelectedIndexChanged);
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1352, 505);
+            this.ClientSize = new System.Drawing.Size(1352, 533);
             this.Controls.Add(this.CmbDeleteComputer);
             this.Controls.Add(this.CmdDeleteComputer);
             this.Controls.Add(this.LblSoftware);

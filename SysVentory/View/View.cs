@@ -225,5 +225,10 @@ namespace SysVentory.View
             else
                 MessageBox.Show(errorMessages[4]);
         }
+
+        private void CmbDeleteComputer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

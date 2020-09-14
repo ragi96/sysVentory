@@ -112,6 +112,7 @@ namespace SysVentory
         // Löscht das Scanfile, für den angegebenen Computer
         public void DeleteComputerScan(string selectedComputer)
         {
+            selectedComputer = "data\\SCAN_" + selectedComputer + ".json";
             File.Delete(selectedComputer);
         }
     }

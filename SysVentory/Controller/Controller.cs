@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SysVentory.ThirdParty;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace SysVentory
 {
@@ -34,7 +35,13 @@ namespace SysVentory
         // Liefert alle verfügbaren Computer mit Scans zurück
         public string[] GetComputers()
         {
-            return Directory.GetFiles(@"data");
+            string[] Computers =  Directory.GetFiles(@"data");
+            for (int i = 0; i < Computers.Length; i++)
+            {               
+                Computers[i] = Regex.Replace(Computers[i], @"data\\SCAN_", "");
+                Computers[i] = Regex.Replace(Computers[i], @"\.json", "");
+            }
+            return Computers;
         }
 
         // Liefert alle Deltas im Storage zurück
