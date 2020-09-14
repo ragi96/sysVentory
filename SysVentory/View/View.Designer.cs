@@ -64,6 +64,7 @@
             // 
             // TxtOut1
             // 
+            this.TxtOut1.BackColor = System.Drawing.Color.White;
             this.TxtOut1.Location = new System.Drawing.Point(11, 133);
             this.TxtOut1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut1.Multiline = true;
@@ -125,6 +126,7 @@
             // 
             // TxtOut2
             // 
+            this.TxtOut2.BackColor = System.Drawing.Color.White;
             this.TxtOut2.Location = new System.Drawing.Point(458, 133);
             this.TxtOut2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxtOut2.Multiline = true;
