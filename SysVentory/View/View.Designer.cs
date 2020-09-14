@@ -255,7 +255,7 @@
             this.CmdDeleteComputer.TabIndex = 16;
             this.CmdDeleteComputer.Text = "Scans eines Gerätes löschen";
             this.CmdDeleteComputer.UseVisualStyleBackColor = true;
-            this.CmdDeleteComputer.Click += new System.EventHandler(this.cmdDeleteComputer_Click);
+            this.CmdDeleteComputer.Click += new System.EventHandler(this.CmdDeleteComputer_Click);
             // 
             // CmbDeleteComputer
             // 

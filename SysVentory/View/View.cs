@@ -6,14 +6,13 @@ using System.Windows.Forms;
 
 namespace SysVentory.View
 {
-
-
+    // Die View stellt die Benutzeroberfläche und ihre Aktionen dar
     public partial class View : Form
     {
-
-
+        // Controller, der den Datenzugriff steuert
         private Controller Controller;
 
+        // Liste von möglichen Fehlermeldungen
         private readonly string[] errorMessages = {
             "Bitte wählen Sie Scan 1 aus!",
             "Bitte wählen Sie Scan 2 aus!",
@@ -22,9 +21,7 @@ namespace SysVentory.View
             "Bitte wählen Sie einen Computer aus!"
         };
 
-        /*
-        * Structure For Selection and Highlight the Delta Text
-        */
+        // Highlights, die Änderungen in Deltas darstellt
         public struct Highlights
         {
             public int startpos;
@@ -32,12 +29,15 @@ namespace SysVentory.View
             public Color color;
         }
 
+        // Erstellt eine neue View und lädt alle GUI Daten
         public View()
         {
             InitializeComponent();
             Controller = new Controller();
             LoadGui();
         }
+
+        // Wird zum initialen Load und Reload des GUIs verwendet
         private void LoadGui(bool hardScanReset = false)
         {
             object cmbScan1 = CmbScans1.SelectedItem;
@@ -57,7 +57,7 @@ namespace SysVentory.View
                 TxtOut2.Text = "";
             }
 
-            // load scans
+            // Lädt Scans aus dem Storage
             List<Scan> scans = Controller.GetScans();
             if(scans != null) { 
                 foreach (Scan scan in scans) {
@@ -65,7 +65,7 @@ namespace SysVentory.View
                     CmbScans2.Items.Add(scan.GetSelect());
                 }
             }
-            // load deltas
+            // Lädt Deltas aus dem Storage
             List<Delta> deltas = Controller.GetDeltas();
             if (deltas != null)
             {
@@ -82,7 +82,7 @@ namespace SysVentory.View
             if (cmbDelta != null)
                 CmbDeltas.SelectedItem = cmbDelta;
             
-            //load all scanned Computers
+            // Lädt alle verfügbaren Computer
             string[] Computers = Controller.GetComputers();
             foreach (string s in Computers)
             {
@@ -90,12 +90,14 @@ namespace SysVentory.View
             }
         }
 
+        // Erstellt einen neuen Scan
         private void CmdScan_Click(object sender, EventArgs e)
         {
             Controller.ScanNow();
             LoadGui();
         }
 
+        // Stellt den ausgewählten Scan aus Feld 1 dar
         private void CmdShow1_Click(object sender, EventArgs e)
         {
             if (CmbScans1.SelectedItem != null) {
@@ -106,6 +108,7 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[0]);
         }
 
+        // Stellt den ausgewählten Scan aus Feld 2 dar
         private void CmdShow2_Click(object sender, EventArgs e)
         {
             if (CmbScans2.SelectedItem != null) {
@@ -116,6 +119,8 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[1]);
 
         }
+
+        // Erstellt ein neues Delta der ausgewählten Scans
         private void CmdDiff_Click(object sender, EventArgs e)
         {
             if (CmbScans1.SelectedItem != null && CmbScans2.SelectedItem != null) {
@@ -128,6 +133,8 @@ namespace SysVentory.View
             } else
                 MessageBox.Show(errorMessages[2]);
         }
+
+        // Löscht den ausgewählten Scan in Feld 1
         private void CmdDelete1_Click(object sender, EventArgs e)
         {
             if (CmbScans1.SelectedItem != null)
@@ -141,6 +148,7 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[0]);
         }
 
+        // Löscht den ausgewählten Scan in Feld 2
         private void CmdDelete2_Click(object sender, EventArgs e)
         {
             if (CmbScans2.SelectedItem != null)
@@ -154,6 +162,7 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[1]);
         }
 
+        // Lädt das ausgewählte Delta mit hervorhebungen
         private void WriteDiffs(List<Diff> diffs, RichTextBox rtb)
         {
             rtb.Text = "";
@@ -181,6 +190,7 @@ namespace SysVentory.View
             HighlightDiff(highlightList, rtb);
         }
 
+        // Setzt die korrekte Hervorhebung auf dem Delta
         private void HighlightDiff(List<Highlights> highlights, RichTextBox rtb)
         {
             foreach (Highlights high in highlights)
@@ -190,6 +200,7 @@ namespace SysVentory.View
             }
         }
 
+        // Schreibt das ausgewählte Delta ins GUI
         private void CmdShowDiff_Click(object sender, EventArgs e)
         {
             if (CmbDeltas.SelectedItem != null)
@@ -203,7 +214,8 @@ namespace SysVentory.View
                 MessageBox.Show(errorMessages[3]);
         }
 
-        private void cmdDeleteComputer_Click(object sender, EventArgs e)
+        // Löscht die Scans des ausgewählten Computers
+        private void CmdDeleteComputer_Click(object sender, EventArgs e)
         {
             if (CmbDeleteComputer.SelectedItem != null)
             {

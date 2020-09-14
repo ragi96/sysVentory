@@ -3,12 +3,17 @@ using SysVentory.ThirdParty;
 
 namespace SysVentory
 {
+    // Der Scan stellt ein momentanes Abbild der Systeminformationen eines Computers dar
     class Scan
     {
+        // MachineName, der den Namen des Computers darstellt
         public string MachineName { get; set; }
+        // Timestamp, der den Zeitpunkt des Abbilds beinhaltet
         public long Timestamp {get; set; }
+        // Data, in dem die Scandaten abgelegt sind
         public Data Data { get; set; }
 
+        // Konstruktor, der ein neues Scanobjekt anhand eines Datas erstellt
         public Scan(Data data)
         {
             var currentTime = DateTimeOffset.Now;
@@ -19,6 +24,7 @@ namespace SysVentory
             Data = data;
         }
 
+        // Konstruktor, der ein neues Scanobjekt erstellt
         public Scan(string machineName, long timestamp, Data data)
         {
             MachineName = machineName;
@@ -26,6 +32,7 @@ namespace SysVentory
             Data = data;
         }
 
+        // Konstruktor, der ein neues Scanobjekt ohne Data erstellt
         public Scan()
         {
             var currentTime = DateTimeOffset.Now;
@@ -35,9 +42,10 @@ namespace SysVentory
             Timestamp = TimeZoneInfo.ConvertTime(currentTime, cetInfo).ToUnixTimeMilliseconds();
         }
 
+        // Gibt den Titel, des Scans aus
         public string GetSelect() => MachineName + " " + this.GetPrintDate();
 
-
+        // Gibt die Scan-Zeit lesbar formatiert aus
         private string GetPrintDate()
         {
             // First make a System.DateTime equivalent to the UNIX Epoch.
@@ -52,6 +60,7 @@ namespace SysVentory
             return dateTime.ToShortDateString() + " " + dateTime.ToLongTimeString();
         }
 
+        // Gibt den gesamten Scan lesbar aus
         public override string ToString() => this.GetSelect() + ":\r\n" + Data.ToString();
     }
 }

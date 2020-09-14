@@ -4,16 +4,19 @@ using System.IO;
 
 namespace SysVentory
 {
-
+    // Der Controller steuert den Datenzugriff aus der View und liefert die Daten aus dem Model
     class Controller
     {
+        // Storage, in dem die Daten zur Laufzeit gehalten werden
         private Storage Storage { get; set; }
 
+        // Konstruktur, erstellt zum Programmstart einen neuen Storage
         public Controller()
         {
             Storage = new Storage();
         }
 
+        // Fügt einen neuen Scan im Storage hinzu
         public Scan ScanNow()
         {
             Scan newScan = new Scan(Data.Read());
@@ -22,22 +25,25 @@ namespace SysVentory
             return newScan;
         }
 
+        // Liefert alle Scans im Storage zurück
         public List<Scan> GetScans()
         {
             return Storage.Scans;
         }
 
-        //load all Json files in data folder
+        // Liefert alle verfügbaren Computer mit Scans zurück
         public string[] GetComputers()
         {
             return Directory.GetFiles(@"data");
         }
 
+        // Liefert alle Deltas im Storage zurück
         public List<Delta> GetDeltas()
         {
             return Storage.Deltas;
         }
 
+        // Liefert einen bestimmten Scan aus dem Storage zurück
         public Scan FindScanBySelected(string selected)
         {
             foreach (Scan scan in Storage.Scans)
@@ -48,6 +54,7 @@ namespace SysVentory
             return new Scan();
         }
 
+        // Liefert ein bestimmtes Delta aus dem Storage zurück
         public Delta FindDeltaBySelected(string selected)
         {
             foreach (Delta delta in Storage.Deltas)
@@ -58,6 +65,7 @@ namespace SysVentory
             return new Delta();
         }
 
+        // Generiert ein neues Delta und fügt dieses dem Storage hinzu
         public Delta GetListDiffByTwoSelected(string selected1, string selected2)
         {
             if (FindDeltaBySelected(selected1 + " " + selected2).Title == "")
@@ -69,14 +77,17 @@ namespace SysVentory
                 return newDelta;
             }
             else {
+                // Sollte das Delta bereits einmal generiert sein, wird das bestehende zurückgeliefert
                 return FindDeltaBySelected(selected1 + " " + selected2);
             }
         }
 
+        // Löscht einen bestimmten Scan aus dem Storage
         public void DeleteByScan(string selected) {
             Storage.DeleteScan(selected);
         }
 
+        // Löscht alle Scans eines Computers
         public void DeleteComputerScan(string selectedComputer)
         {
             Storage.DeleteComputerScan(selectedComputer);
