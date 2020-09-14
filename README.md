@@ -53,13 +53,13 @@ Testing (2 Computer)
 
 &#9745; RTB Readonly **Rafael**
 
-Timestamp fixen (Zeitzone) **Lukas**
+&#9745; Timestamp fixen (Zeitzone) **Lukas**
 
 Inline Comments **Lukas**
 
 readme.txt schreiben **Lukas**
 
-Tab Reihenfolge **Lukas**
+&#9745; Tab Reihenfolge **Lukas**
 
 
 

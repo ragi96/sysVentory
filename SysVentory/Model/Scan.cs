@@ -11,8 +11,11 @@ namespace SysVentory
 
         public Scan(Data data)
         {
+            var currentTime = DateTimeOffset.Now;
+            TimeZoneInfo cetInfo = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
+
             MachineName = Environment.MachineName;
-            Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            Timestamp = TimeZoneInfo.ConvertTime(currentTime, cetInfo).ToUnixTimeMilliseconds();
             Data = data;
         }
 
@@ -23,9 +26,13 @@ namespace SysVentory
             Data = data;
         }
 
-        public Scan() {
+        public Scan()
+        {
+            var currentTime = DateTimeOffset.Now;
+            TimeZoneInfo cetInfo = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
+
             MachineName = Environment.MachineName;
-            Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            Timestamp = TimeZoneInfo.ConvertTime(currentTime, cetInfo).ToUnixTimeMilliseconds();
         }
 
         public string GetSelect() => MachineName + " " + this.GetPrintDate();
@@ -34,10 +41,11 @@ namespace SysVentory
         private string GetPrintDate()
         {
             // First make a System.DateTime equivalent to the UNIX Epoch.
-            System.DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+            DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 
             // Add the number of seconds in UNIX timestamp to be converted.
-            dateTime = dateTime.AddMilliseconds(Timestamp);
+            dateTime = dateTime.AddMilliseconds(Timestamp).ToLocalTime();
+
 
             // The dateTime now contains the right date/time so to format the string,
             // use the standard formatting methods of the DateTime object.
