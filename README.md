@@ -15,9 +15,9 @@
 
 &#9745; Die Inventarisierungs-Historie eines einzelnen Elements kann explizit betrachtet und die ganze Chronik hinsichtlich Scans 
 
-&#9745; die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael** **Erledigt 04.09.2020**
+&#9745; die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael**
 
-&#9745; Geileres Delta **Rafael** diff match patch **Erledigt 04.09.2020**
+&#9745; Geileres Delta (diff match patch) **Rafael** 
 
 ### Optionale Anforderungen
 Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
@@ -30,7 +30,7 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 
 &#9745; Es werden nur Form-Komponenten verwendet, welche auch im Unterricht besprochen und eingesetzt wurden.
 
-&#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas Erledigt 08.09.2020**
+&#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas**
 
 &#9745; Die Architektur der Applikation setzt das MVC-Pattern um.
 
@@ -41,7 +41,7 @@ Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zust
 
 &#9745; View reload **Rafael**
 
-Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
+&#9745; Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
 
 &#9745; Class File to Storage **Rafael**
 

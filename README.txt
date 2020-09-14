@@ -4,9 +4,12 @@
 Das GUI ist intuitiv bedienbar und reagiert schnell auf Benutzereingaben.
 
 -- Rafael
+In der Deltaansicht sind Änderungen schön in mit passenden Farben hinterlegt.
 
 -- Armando
+Man hat als Team verschiedene Blickpunkte und Lösungsansätze kennengelernt. Die war oft hilfreich.
 
+Die neu kennengelernte API kann sehr hilfreich sein für zukünftige Prjekte(z.B. Systemanforderungen bestimmen für projekte mit hoher hardwarevoraussetzung)
 
 - Verbesserungsvorschläge
 
