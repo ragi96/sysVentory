@@ -17,33 +17,43 @@ namespace SysVentory
         readonly string Machinename = "undefinded";
 
         readonly string filePath = folder + "/scans.json";
+        readonly string prefix = "SCAN_";
 
         public Storage()
         {
             Scans = new List<Scan>();
             Deltas = new List<Delta>();
             Machinename = Environment.MachineName;
-            filePath = folder + "/" + Machinename + ".json";
+            
+            filePath = folder + "/" +prefix + Machinename + ".json";
             // Create Folder
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
             if (!Directory.Exists(deltaFolder))
                 Directory.CreateDirectory(deltaFolder);
 
-            // Scan init
-            if (System.IO.File.Exists(filePath))
+            var scans = Directory.GetFiles("data", "SCAN*.json");
+
+            foreach (var scan in scans)
             {
-                string scanJson = System.IO.File.ReadAllText(filePath);
-                if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null)
-                    Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
+                // Scan init
+                if (scans != null)
+                {
+                    string scanJson = System.IO.File.ReadAllText(scan);
+                    if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null)
+                        Scans.AddRange(JsonConvert.DeserializeObject<List<Scan>>(scanJson));
+
+                }
+                // Delta init
+                if (System.IO.File.Exists(deltaFilePath))
+                {
+                    string scanJson = System.IO.File.ReadAllText(deltaFilePath);
+                    if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
+                        Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
+                }
             }
-            // Delta init
-            if (System.IO.File.Exists(deltaFilePath))
-            {
-                string scanJson = System.IO.File.ReadAllText(deltaFilePath);
-                if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
-                    Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
-            }
+
+                
         }
 
         public void WriteScan(Scan scan)
@@ -80,6 +90,11 @@ namespace SysVentory
 
             string scanJson = JsonConvert.SerializeObject(Deltas);
             System.IO.File.WriteAllText(deltaFilePath, scanJson);
+        }
+        //delete all scans from the chosen Computer
+        public void DeleteComputerScan(string selectedComputer)
+        {
+            File.Delete(selectedComputer);
         }
     }
 }

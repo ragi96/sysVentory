@@ -112,7 +112,7 @@ namespace SysVentory
 
         public void DeleteComputerScan(string selectedComputer)
         {
-            File.Delete(selectedComputer);
+            Storage.DeleteComputerScan(selectedComputer);
         }
     }
 }
