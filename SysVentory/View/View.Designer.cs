@@ -57,7 +57,7 @@
             this.CmdScan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CmdScan.Name = "CmdScan";
             this.CmdScan.Size = new System.Drawing.Size(882, 29);
-            this.CmdScan.TabIndex = 0;
+            this.CmdScan.TabIndex = 9;
             this.CmdScan.Text = "Scanne diesen Computer";
             this.CmdScan.UseVisualStyleBackColor = true;
             this.CmdScan.Click += new System.EventHandler(this.CmdScan_Click);
@@ -71,7 +71,7 @@
             this.TxtOut1.ReadOnly = true;
             this.TxtOut1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtOut1.Size = new System.Drawing.Size(436, 305);
-            this.TxtOut1.TabIndex = 1;
+            this.TxtOut1.TabIndex = 4;
             this.TxtOut1.WordWrap = false;
             // 
             // CmdDiff
@@ -79,7 +79,7 @@
             this.CmdDiff.Location = new System.Drawing.Point(904, 98);
             this.CmdDiff.Name = "CmdDiff";
             this.CmdDiff.Size = new System.Drawing.Size(436, 29);
-            this.CmdDiff.TabIndex = 4;
+            this.CmdDiff.TabIndex = 12;
             this.CmdDiff.Text = "Neues Delta berechnen";
             this.CmdDiff.UseVisualStyleBackColor = true;
             this.CmdDiff.Click += new System.EventHandler(this.CmdDiff_Click);
@@ -89,7 +89,7 @@
             this.CmdShow1.Location = new System.Drawing.Point(11, 63);
             this.CmdShow1.Name = "CmdShow1";
             this.CmdShow1.Size = new System.Drawing.Size(436, 29);
-            this.CmdShow1.TabIndex = 5;
+            this.CmdShow1.TabIndex = 2;
             this.CmdShow1.Text = "Scan 1 anzeigen";
             this.CmdShow1.UseVisualStyleBackColor = true;
             this.CmdShow1.Click += new System.EventHandler(this.CmdShow1_Click);
@@ -100,7 +100,7 @@
             this.CmbScans1.Location = new System.Drawing.Point(11, 38);
             this.CmbScans1.Name = "CmbScans1";
             this.CmbScans1.Size = new System.Drawing.Size(436, 21);
-            this.CmbScans1.TabIndex = 6;
+            this.CmbScans1.TabIndex = 1;
             this.CmbScans1.Text = "Scan 1 auswählen";
             // 
             // CmbScans2
@@ -110,7 +110,7 @@
             this.CmbScans2.Name = "CmbScans2";
             this.CmbScans2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CmbScans2.Size = new System.Drawing.Size(436, 21);
-            this.CmbScans2.TabIndex = 8;
+            this.CmbScans2.TabIndex = 5;
             this.CmbScans2.Text = "Scan 2 auswählen";
             // 
             // CmdShow2
@@ -118,7 +118,7 @@
             this.CmdShow2.Location = new System.Drawing.Point(458, 65);
             this.CmdShow2.Name = "CmdShow2";
             this.CmdShow2.Size = new System.Drawing.Size(436, 29);
-            this.CmdShow2.TabIndex = 7;
+            this.CmdShow2.TabIndex = 6;
             this.CmdShow2.Text = "Scan 2 anzeigen";
             this.CmdShow2.UseVisualStyleBackColor = true;
             this.CmdShow2.Click += new System.EventHandler(this.CmdShow2_Click);
@@ -132,7 +132,7 @@
             this.TxtOut2.ReadOnly = true;
             this.TxtOut2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtOut2.Size = new System.Drawing.Size(436, 305);
-            this.TxtOut2.TabIndex = 9;
+            this.TxtOut2.TabIndex = 8;
             this.TxtOut2.WordWrap = false;
             // 
             // LblScan2
@@ -158,7 +158,7 @@
             this.CmdDelete1.Location = new System.Drawing.Point(11, 98);
             this.CmdDelete1.Name = "CmdDelete1";
             this.CmdDelete1.Size = new System.Drawing.Size(436, 29);
-            this.CmdDelete1.TabIndex = 13;
+            this.CmdDelete1.TabIndex = 3;
             this.CmdDelete1.Text = "Scan 1 löschen";
             this.CmdDelete1.UseVisualStyleBackColor = true;
             this.CmdDelete1.Click += new System.EventHandler(this.CmdDelete1_Click);
@@ -168,7 +168,7 @@
             this.CmdDelete2.Location = new System.Drawing.Point(458, 98);
             this.CmdDelete2.Name = "CmdDelete2";
             this.CmdDelete2.Size = new System.Drawing.Size(436, 29);
-            this.CmdDelete2.TabIndex = 14;
+            this.CmdDelete2.TabIndex = 7;
             this.CmdDelete2.Text = "Scan 2 löschen";
             this.CmdDelete2.UseVisualStyleBackColor = true;
             this.CmdDelete2.Click += new System.EventHandler(this.CmdDelete2_Click);
@@ -182,7 +182,7 @@
             this.RtbDiffSoftware.Name = "RtbDiffSoftware";
             this.RtbDiffSoftware.ReadOnly = true;
             this.RtbDiffSoftware.Size = new System.Drawing.Size(436, 133);
-            this.RtbDiffSoftware.TabIndex = 16;
+            this.RtbDiffSoftware.TabIndex = 14;
             this.RtbDiffSoftware.Text = "";
             this.RtbDiffSoftware.WordWrap = false;
             // 
@@ -192,7 +192,7 @@
             this.CmbDeltas.Location = new System.Drawing.Point(904, 38);
             this.CmbDeltas.Name = "CmbDeltas";
             this.CmbDeltas.Size = new System.Drawing.Size(436, 21);
-            this.CmbDeltas.TabIndex = 17;
+            this.CmbDeltas.TabIndex = 10;
             this.CmbDeltas.Text = "Delta auswählen";
             // 
             // CmdShowDiff
@@ -200,7 +200,7 @@
             this.CmdShowDiff.Location = new System.Drawing.Point(904, 65);
             this.CmdShowDiff.Name = "CmdShowDiff";
             this.CmdShowDiff.Size = new System.Drawing.Size(436, 29);
-            this.CmdShowDiff.TabIndex = 18;
+            this.CmdShowDiff.TabIndex = 11;
             this.CmdShowDiff.Text = "Delta anzeigen";
             this.CmdShowDiff.UseVisualStyleBackColor = true;
             this.CmdShowDiff.Click += new System.EventHandler(this.CmdShowDiff_Click);
@@ -223,7 +223,7 @@
             this.RtbDiffHardware.Name = "RtbDiffHardware";
             this.RtbDiffHardware.ReadOnly = true;
             this.RtbDiffHardware.Size = new System.Drawing.Size(436, 129);
-            this.RtbDiffHardware.TabIndex = 20;
+            this.RtbDiffHardware.TabIndex = 13;
             this.RtbDiffHardware.Text = "";
             this.RtbDiffHardware.WordWrap = false;
             // 
@@ -252,7 +252,7 @@
             this.CmdDeleteComputer.Location = new System.Drawing.Point(1155, 454);
             this.CmdDeleteComputer.Name = "CmdDeleteComputer";
             this.CmdDeleteComputer.Size = new System.Drawing.Size(185, 29);
-            this.CmdDeleteComputer.TabIndex = 23;
+            this.CmdDeleteComputer.TabIndex = 16;
             this.CmdDeleteComputer.Text = "Scans eines Gerätes löschen";
             this.CmdDeleteComputer.UseVisualStyleBackColor = true;
             this.CmdDeleteComputer.Click += new System.EventHandler(this.cmdDeleteComputer_Click);
@@ -263,7 +263,7 @@
             this.CmbDeleteComputer.Location = new System.Drawing.Point(906, 459);
             this.CmbDeleteComputer.Name = "CmbDeleteComputer";
             this.CmbDeleteComputer.Size = new System.Drawing.Size(228, 21);
-            this.CmbDeleteComputer.TabIndex = 24;
+            this.CmbDeleteComputer.TabIndex = 15;
             this.CmbDeleteComputer.Text = "Computer auswählen";
             // 
             // View
