@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 using System;
 
 namespace SysVentory
@@ -43,7 +44,6 @@ namespace SysVentory
 
             foreach (var scan in scans)
             {
-                // Scan init
                 if (scans != null)
                 {
                     string scanJson = File.ReadAllText(scan);
@@ -52,6 +52,9 @@ namespace SysVentory
 
                 }
             }
+
+            // Sortiert alle Scans
+            Scans = Scans.OrderBy(s => s.GetSelect()).ToList();
 
             // Lest alle Deltas aus
             if (File.Exists(deltaFilePath))
