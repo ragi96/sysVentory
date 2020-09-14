@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 using System;
 using System.Web.UI.WebControls;
 
@@ -47,6 +48,8 @@ namespace SysVentory
 
                 }
             }
+            // Sortiert alle Scans
+            Scans = Scans.OrderBy(s => s.GetSelect()).ToList();
             // Delta init
             if (System.IO.File.Exists(deltaFilePath))
             {
