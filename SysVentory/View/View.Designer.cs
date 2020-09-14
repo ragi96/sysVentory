@@ -267,7 +267,6 @@
             this.CmbDeleteComputer.Size = new System.Drawing.Size(436, 21);
             this.CmbDeleteComputer.TabIndex = 15;
             this.CmbDeleteComputer.Text = "Computer auswählen";
-            this.CmbDeleteComputer.SelectedIndexChanged += new System.EventHandler(this.CmbDeleteComputer_SelectedIndexChanged);
             // 
             // View
             // 
