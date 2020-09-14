@@ -65,10 +65,10 @@ namespace SysVentory
         }
 
         // Fügt einen Scan hinzu und persistiert ihn
-        public void WriteScan(Scan Scan)
+        public void WriteScan(Scan scan)
         {
-            Scans.Add(Scan);
-            string filePath = Scan.GetFileName(Folder, Prefix);
+            Scans.Add(scan);
+            string filePath = scan.GetFilePath(Folder, Prefix);
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
@@ -86,7 +86,7 @@ namespace SysVentory
             }
             // Löschen aus allen Scans
             Scans.Remove(toDelete);
-            string machineFilePath = toDelete.GetFileName(Folder, Prefix);
+            string machineFilePath = toDelete.GetFilePath(Folder, Prefix);
 
             //Löschen aus dem Machine JSON
             List<Scan> machineScans = Scans.Where(s => s.MachineName == toDelete.MachineName).ToList();
