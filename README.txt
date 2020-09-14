@@ -4,6 +4,7 @@
 Das GUI ist intuitiv bedienbar und reagiert schnell auf Benutzereingaben.
 
 -- Rafael
+In der Deltaansicht sind Änderungen schön in mit passenden Farben hinterlegt.
 
 -- Armando
 
