@@ -55,6 +55,10 @@ namespace SysVentory.View
                 CmbScans2.ResetText();
                 TxtOut1.Text = "";
                 TxtOut2.Text = "";
+                CmbScans1.SelectedItem = null;
+                CmbScans1.SelectedText = "Scan 1 auswählen";
+                CmbScans2.SelectedItem = null;
+                CmbScans2.SelectedText = "Scan 2 auswählen";
             }
 
             // Lädt Scans aus dem Storage
