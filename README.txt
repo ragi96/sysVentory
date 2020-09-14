@@ -15,6 +15,7 @@ Verbesserungsvorschläge
 ** Wegen der Umsetzung mit JSONs würde sich z.B. eine MongoDB anbieten.
 * Die View in mehrere Formulare aufteilen, da das aktuelle GUI etwas überladen ist.
 * GUI Design überarbeiten, damit die Applikation optisch moderner aussieht.
+* Asynchroner aufruf aller Funktionen, damit die GUI nicht einfriert.
 
 
 Link zum Github Repo: https://github.com/ragi96/sysVentory

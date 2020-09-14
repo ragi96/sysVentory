@@ -59,6 +59,8 @@ namespace SysVentory.View
                 CmbScans1.SelectedText = "Scan 1 auswählen";
                 CmbScans2.SelectedItem = null;
                 CmbScans2.SelectedText = "Scan 2 auswählen";
+                CmbDeleteComputer.SelectedItem = null;
+                CmbDeleteComputer.SelectedText = "Computer auswählen";
             }
 
             // Lädt Scans aus dem Storage

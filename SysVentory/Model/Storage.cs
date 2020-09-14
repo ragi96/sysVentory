@@ -68,12 +68,14 @@ namespace SysVentory
         public void WriteScan(Scan scan)
         {
             Scans.Add(scan);
+            Scans = Scans.OrderBy(s => s.GetSelect()).ToList();
             string filePath = scan.GetFilePath(Folder, Prefix);
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            string scanJson = JsonConvert.SerializeObject(Scans);
+            List<Scan> machineScans = Scans.Where(s => s.MachineName == scan.MachineName).ToList();
+            string scanJson = JsonConvert.SerializeObject(machineScans);
             File.WriteAllText(filePath, scanJson);
         }
 
