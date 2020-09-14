@@ -55,7 +55,7 @@ Testing (2 Computer)
 
 &#9745; Timestamp fixen (Zeitzone) **Lukas**
 
-Inline Comments **Lukas**
+&#9745; Inline Comments **Lukas**
 
 readme.txt schreiben **Lukas**
 
