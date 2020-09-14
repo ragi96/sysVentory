@@ -5,7 +5,7 @@
 
 &#9745; Daten werden in einer Datei strukturiert gespeichert.
 
-&#9745; Für jedes Gerät wird eine eigene Datei angelegt **Armando**
+&#9745; Für jedes Gerät wird eine eigene Datei angelegt.
 
 &#9745; Jeder Scan wird mit Datum und Uhrzeit in der Datei abgelegt.
 
@@ -13,14 +13,10 @@
 
 &#9745; Bereits erfolgte Scans können jederzeit wieder betrachtet werden.
 
-&#9745; Die Inventarisierungs-Historie eines einzelnen Elements kann explizit betrachtet und die ganze Chronik hinsichtlich Scans 
-
-&#9745; die ganze Chronik hinsichtlich sowie Deltas visualisiert werden. **Rafael**
-
-&#9745; Geileres Delta (diff match patch) **Rafael** 
+&#9745; Die Inventarisierungs-Historie eines einzelnen Elements kann explizit betrachtet und die ganze Chronik hinsichtlich Scans sowie Deltas visualisiert werden.
 
 ### Optionale Anforderungen
-Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
+&#9745; Alle Scan-Daten eines Elements können gelöscht werden
 
 &#9745; Deltas von Hard- sowie Softwareinventare verschiedener Rechner können visualisiert werden.
 
@@ -28,40 +24,17 @@ Alle Scan-Daten eines Elements können gelöscht werden.**Armando**
 ### Nicht funktionale Anforderungen
 &#9745; Die Applikation wird in VisualStudio 2019 mit C# und Windows-Forms erstellt.
 
+&#9745; Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt).
+
 &#9745; Es werden nur Form-Komponenten verwendet, welche auch im Unterricht besprochen und eingesetzt wurden.
 
-&#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). Noch zu trennen **Lukas**
+&#9745; Der Inventarkatalog wird visuell sinnvoll dargestellt (Hardware bzw. Software getrennt). 
 
 &#9745; Die Architektur der Applikation setzt das MVC-Pattern um.
 
 &#9745; Es werden die Konzepte der objektorientierten Programmierung umgesetzt.
 
-### To-Do
-Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zuständigkeiten von Klassen, Methoden, usw. sind klar geregelt). **Alle**
-
-&#9745; View reload **Rafael**
-
-&#9745; Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
-
-&#9745; Class File to Storage **Rafael**
-
-&#9745; Scan anzeigen second time no change **Rafael**
-
-&#9745; Delta save own folder **Rafael**
-
-Testing (2 Computer)
-
-&#9745; RTB Readonly **Rafael**
-
-&#9745; Timestamp fixen (Zeitzone) **Lukas**
-
-&#9745; Inline Comments **Lukas**
-
-readme.txt schreiben **Lukas**
-
-&#9745; Tab Reihenfolge **Lukas**
-
-
+&#9745; Inline Comments
 
 
 
