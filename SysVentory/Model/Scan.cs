@@ -49,7 +49,7 @@ namespace SysVentory
 
             // The dateTime now contains the right date/time so to format the string,
             // use the standard formatting methods of the DateTime object.
-            return dateTime.ToShortDateString() + " " + dateTime.ToShortTimeString();
+            return dateTime.ToShortDateString() + " " + dateTime.ToLongTimeString();
         }
 
         public override string ToString() => this.GetSelect() + ":\r\n" + Data.ToString();
