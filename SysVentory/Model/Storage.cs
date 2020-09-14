@@ -46,16 +46,15 @@ namespace SysVentory
                         Scans.AddRange(JsonConvert.DeserializeObject<List<Scan>>(scanJson));
 
                 }
-                // Delta init
-                if (System.IO.File.Exists(deltaFilePath))
-                {
-                    string scanJson = System.IO.File.ReadAllText(deltaFilePath);
-                    if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
-                        Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
-                }
+            }
+            // Delta init
+            if (System.IO.File.Exists(deltaFilePath))
+            {
+                string scanJson = System.IO.File.ReadAllText(deltaFilePath);
+                if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
+                    Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
             }
 
-                
         }
 
         public void WriteScan(Scan scan)
