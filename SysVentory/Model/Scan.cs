@@ -45,6 +45,8 @@ namespace SysVentory
         // Gibt den Titel, des Scans aus
         public string GetSelect() => MachineName + " " + this.GetPrintDate();
 
+        public string GetFileName() => "SCAN_" + MachineName + ".json";
+
         // Gibt die Scan-Zeit lesbar formatiert aus
         private string GetPrintDate()
         {

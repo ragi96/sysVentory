@@ -21,7 +21,6 @@ namespace SysVentory
         const string folder = "data";
         readonly string Machinename = "undefinded";
 
-        readonly string filePath = folder + "/scans.json";
         readonly string prefix = "SCAN_";
 
         // Baut einen neuen Storage beim Programmstart auf
@@ -31,7 +30,7 @@ namespace SysVentory
             Deltas = new List<Delta>();
             Machinename = Environment.MachineName;
             
-            filePath = folder + "/" +prefix + Machinename + ".json";
+            string filePath = folder + "/" +prefix + Machinename + ".json";
             
             // Erstellt Ordner, falls sie noch nicht vorhanden sind
             if (!Directory.Exists(folder))
@@ -40,16 +39,17 @@ namespace SysVentory
                 Directory.CreateDirectory(deltaFolder);
 
             // Lest alle Scans aus
-            var scans = Directory.GetFiles("data", "SCAN*.json");
+            var scanFiles = Directory.GetFiles("data", "SCAN*.json");
 
-            foreach (var scan in scans)
+            foreach (var scan in scanFiles)
             {
-                if (scans != null)
+                if (scanFiles != null)
                 {
                     string scanJson = File.ReadAllText(scan);
-                    if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null)
-                        Scans.AddRange(JsonConvert.DeserializeObject<List<Scan>>(scanJson));
-
+                    if(scanJson != "false") { 
+                        if (JsonConvert.DeserializeObject<List<Scan>>(scanJson) != null)
+                            Scans.AddRange(JsonConvert.DeserializeObject<List<Scan>>(scanJson));
+                    }
                 }
             }
 
@@ -70,6 +70,7 @@ namespace SysVentory
         public void WriteScan(Scan scan)
         {
             Scans.Add(scan);
+            string filePath = folder + "/" + scan.GetFileName();
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
@@ -80,17 +81,24 @@ namespace SysVentory
 
         // Löscht einen Scan
         public void DeleteScan(string selectedScan) {
-            string scanJson = File.ReadAllText(filePath);
-            Scans = JsonConvert.DeserializeObject<List<Scan>>(scanJson);
             Scan toDelete = new Scan();
             foreach (Scan singleScan in Scans) {
                 if (singleScan.GetSelect() == selectedScan)
                     toDelete = singleScan;
                     
             }
+            // Löschen aus allen Scans
             Scans.Remove(toDelete);
-            string newScanJson = JsonConvert.SerializeObject(Scans);
-            File.WriteAllText(filePath, newScanJson);
+            string machineFilePath = folder + "/" + toDelete.GetFileName();
+
+            string machineScanJson = File.ReadAllText(machineFilePath);
+            List<Scan> machineScans = null;
+            if (JsonConvert.DeserializeObject<List<Scan>>(machineScanJson) != null)
+                machineScans = JsonConvert.DeserializeObject<List<Scan>>(machineScanJson);
+            
+            //Löschen aus dem Machine JSON
+            string newScanJson = JsonConvert.SerializeObject(machineScans.Remove(toDelete));
+            File.WriteAllText(machineFilePath, newScanJson);
         }
 
         // Fügt ein Delta hinzu und persistiert es
