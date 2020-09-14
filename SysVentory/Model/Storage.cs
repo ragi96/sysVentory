@@ -15,13 +15,11 @@ namespace SysVentory
         public List<Delta> Deltas { get; set; }
 
         // Diverse Namen für die Schreib- und Lesezugriffe
-        const string deltaFolder = "deltas";
-        const string deltaFilePath = deltaFolder + "/" + "delta.json";
-
-        const string folder = "data";
-        readonly string Machinename = "undefinded";
-
-        readonly string prefix = "SCAN_";
+        private const string DeltaFolder = "deltas";
+        private const string DeltaFilePath = DeltaFolder + "/" + "delta.json";
+        private const string Folder = "data";
+        private string Machinename = "undefined";
+        private readonly string Prefix = "SCAN_";
 
         // Baut einen neuen Storage beim Programmstart auf
         public Storage()
@@ -30,13 +28,13 @@ namespace SysVentory
             Deltas = new List<Delta>();
             Machinename = Environment.MachineName;
             
-            string filePath = folder + "/" +prefix + Machinename + ".json";
+            string filePath = Folder + "/" + Prefix + Machinename + ".json";
             
             // Erstellt Ordner, falls sie noch nicht vorhanden sind
-            if (!Directory.Exists(folder))
-                Directory.CreateDirectory(folder);
-            if (!Directory.Exists(deltaFolder))
-                Directory.CreateDirectory(deltaFolder);
+            if (!Directory.Exists(Folder))
+                Directory.CreateDirectory(Folder);
+            if (!Directory.Exists(DeltaFolder))
+                Directory.CreateDirectory(DeltaFolder);
 
             // Lest alle Scans aus
             var scanFiles = Directory.GetFiles("data", "SCAN*.json");
@@ -57,9 +55,9 @@ namespace SysVentory
             Scans = Scans.OrderBy(s => s.GetSelect()).ToList();
 
             // Lest alle Deltas aus
-            if (File.Exists(deltaFilePath))
+            if (File.Exists(DeltaFilePath))
             {
-                string scanJson = File.ReadAllText(deltaFilePath);
+                string scanJson = File.ReadAllText(DeltaFilePath);
                 if (JsonConvert.DeserializeObject<List<Delta>>(scanJson) != null)
                     Deltas = JsonConvert.DeserializeObject<List<Delta>>(scanJson);
             }
@@ -70,7 +68,7 @@ namespace SysVentory
         public void WriteScan(Scan scan)
         {
             Scans.Add(scan);
-            string filePath = folder + "/" + scan.GetFileName();
+            string filePath = scan.GetFilePath(Folder, Prefix);
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
@@ -88,7 +86,7 @@ namespace SysVentory
             }
             // Löschen aus allen Scans
             Scans.Remove(toDelete);
-            string machineFilePath = folder + "/" + toDelete.GetFileName();
+            string machineFilePath = toDelete.GetFilePath(Folder, Prefix);
 
             //Löschen aus dem Machine JSON
             List<Scan> machineScans = Scans.Where(s => s.MachineName == toDelete.MachineName).ToList();
@@ -102,17 +100,17 @@ namespace SysVentory
         {
             Deltas.Add(delta);
 
-            if (File.Exists(deltaFilePath))
-                File.Delete(deltaFilePath);
+            if (File.Exists(DeltaFilePath))
+                File.Delete(DeltaFilePath);
 
             string scanJson = JsonConvert.SerializeObject(Deltas);
-            File.WriteAllText(deltaFilePath, scanJson);
+            File.WriteAllText(DeltaFilePath, scanJson);
         }
 
         // Löscht das Scanfile, für den angegebenen Computer
         public void DeleteComputerScan(string selectedComputer)
         {
-            selectedComputer = "data\\SCAN_" + selectedComputer + ".json";
+            selectedComputer = Folder + "/"+ Prefix + selectedComputer + ".json";
             File.Delete(selectedComputer);
         }
     }

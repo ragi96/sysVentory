@@ -45,20 +45,14 @@ namespace SysVentory
         // Gibt den Titel, des Scans aus
         public string GetSelect() => MachineName + " " + this.GetPrintDate();
 
-        public string GetFileName() => "SCAN_" + MachineName + ".json";
+        // Gibt den passenden Dateipfad zur Machine des Scans zurück
+        public string GetFilePath(string folder, string prefix) => folder + "/" + prefix + MachineName + ".json";
 
         // Gibt die Scan-Zeit lesbar formatiert aus
         private string GetPrintDate()
         {
-            // First make a System.DateTime equivalent to the UNIX Epoch.
             DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
-
-            // Add the number of seconds in UNIX timestamp to be converted.
             dateTime = dateTime.AddMilliseconds(Timestamp).ToLocalTime();
-
-
-            // The dateTime now contains the right date/time so to format the string,
-            // use the standard formatting methods of the DateTime object.
             return dateTime.ToShortDateString() + " " + dateTime.ToLongTimeString();
         }
 
