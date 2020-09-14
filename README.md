@@ -41,7 +41,7 @@ Die Applikation hat eine einfache, aber durchdachte systematische Struktur (Zust
 
 &#9745; View reload **Rafael**
 
-Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
+&#9745; Scan Daten löschen / View load all scans on all machines / Scans richtiger Ort / alle scans aller Maschinen **Armando**
 
 &#9745; Class File to Storage **Rafael**
 
