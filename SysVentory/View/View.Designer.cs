@@ -79,7 +79,7 @@
             this.CmdDiff.Location = new System.Drawing.Point(11, 489);
             this.CmdDiff.Name = "CmdDiff";
             this.CmdDiff.Size = new System.Drawing.Size(882, 29);
-            this.CmdDiff.TabIndex = 12;
+            this.CmdDiff.TabIndex = 10;
             this.CmdDiff.Text = "Neues Delta berechnen";
             this.CmdDiff.UseVisualStyleBackColor = true;
             this.CmdDiff.Click += new System.EventHandler(this.CmdDiff_Click);
@@ -192,7 +192,7 @@
             this.CmbDeltas.Location = new System.Drawing.Point(904, 38);
             this.CmbDeltas.Name = "CmbDeltas";
             this.CmbDeltas.Size = new System.Drawing.Size(436, 21);
-            this.CmbDeltas.TabIndex = 10;
+            this.CmbDeltas.TabIndex = 11;
             this.CmbDeltas.Text = "Delta auswählen";
             // 
             // CmdShowDiff
@@ -200,7 +200,7 @@
             this.CmdShowDiff.Location = new System.Drawing.Point(904, 65);
             this.CmdShowDiff.Name = "CmdShowDiff";
             this.CmdShowDiff.Size = new System.Drawing.Size(436, 29);
-            this.CmdShowDiff.TabIndex = 11;
+            this.CmdShowDiff.TabIndex = 12;
             this.CmdShowDiff.Text = "Delta anzeigen";
             this.CmdShowDiff.UseVisualStyleBackColor = true;
             this.CmdShowDiff.Click += new System.EventHandler(this.CmdShowDiff_Click);
